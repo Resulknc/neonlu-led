@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-neon-pink: #ff2d78;
+  --color-neon-blue: #00e5ff;
+  --color-dark-bg: #080808;
+  --color-dark-card: #0f0f0f;
+  --color-dark-border: #1a1a1a;
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #080808;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@layer utilities {
+  .neon-text-pink {
+    color: #ff2d78;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #ff2d78, 0 0 42px #ff2d78, 0 0 82px #ff2d78;
+  }
+
+  .neon-text-blue {
+    color: #00e5ff;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #00e5ff, 0 0 42px #00e5ff, 0 0 82px #00e5ff;
+  }
+
+  .neon-glow-pink {
+    box-shadow: 0 0 10px #ff2d78, 0 0 20px #ff2d78, 0 0 40px rgba(255, 45, 120, 0.4);
+  }
+
+  .neon-glow-blue {
+    box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff, 0 0 40px rgba(0, 229, 255, 0.4);
+  }
+
+  .neon-border-pink {
+    border: 1px solid #ff2d78;
+    box-shadow: 0 0 8px #ff2d78, 0 0 16px rgba(255, 45, 120, 0.3), inset 0 0 8px rgba(255, 45, 120, 0.08);
+  }
+
+  .neon-border-blue {
+    border: 1px solid #00e5ff;
+    box-shadow: 0 0 8px #00e5ff, 0 0 16px rgba(0, 229, 255, 0.3), inset 0 0 8px rgba(0, 229, 255, 0.08);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
