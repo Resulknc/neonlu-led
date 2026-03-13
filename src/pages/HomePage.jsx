@@ -3,6 +3,7 @@ import PageWrapper from '../components/common/PageWrapper'
 import HeroSection from '../components/sections/HeroSection'
 import AboutPreview from '../components/sections/AboutPreview'
 import ProductsPreview from '../components/sections/ProductsPreview'
+import ProjectsSection from '../components/sections/ProjectsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import CTASection from '../components/sections/CTASection'
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <HeroSection />
       <AboutPreview />
       <ProductsPreview />
+      <ProjectsSection />
       <TestimonialsSection />
       <CTASection />
     </PageWrapper>

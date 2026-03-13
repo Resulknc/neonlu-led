@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import useSEO from '../hooks/useSEO'
 import PageWrapper from '../components/common/PageWrapper'
+import ProductGallery from '../components/product/ProductGallery'
 import { getProductBySlug, getRelatedProducts } from '../data/products'
 
 /**
@@ -9,44 +10,6 @@ import { getProductBySlug, getRelatedProducts } from '../data/products'
  * Dynamically renders product info from the shared product catalogue.
  * SEO: unique title + description per product via useSEO.
  */
-
-// ── Neon image placeholder ──────────────────────────────────────────────────
-
-function NeonHero({ color, icon }) {
-  const accent = color === 'pink' ? '#ff2d78' : '#00e5ff'
-  const dim    = color === 'pink' ? 'rgba(255,45,120,0.07)' : 'rgba(0,229,255,0.07)'
-  return (
-    <div
-      className="relative w-full flex items-center justify-center overflow-hidden"
-      style={{ height: 380, backgroundColor: '#0a0a0a', border: `1px solid ${accent}20` }}
-    >
-      {/* Grid */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ backgroundImage: `linear-gradient(${dim} 1px,transparent 1px),linear-gradient(90deg,${dim} 1px,transparent 1px)`, backgroundSize: '28px 28px' }} />
-      {/* Corner brackets */}
-      {[['top-3 left-3','border-t border-l'],['top-3 right-3','border-t border-r'],['bottom-3 left-3','border-b border-l'],['bottom-3 right-3','border-b border-r']].map(([pos, cls], i) => (
-        <div key={i} className={`absolute ${pos} w-5 h-5 ${cls}`} style={{ borderColor: `${accent}60` }} />
-      ))}
-      {/* Ambient glow */}
-      <div className="absolute rounded-full pointer-events-none"
-        style={{ width: 200, height: 200, backgroundColor: accent, opacity: 0.1, filter: 'blur(60px)' }} />
-      {/* Pulsing top line */}
-      <motion.div className="absolute top-0 left-0 right-0 h-0.5"
-        style={{ background: `linear-gradient(90deg,transparent,${accent},transparent)` }}
-        animate={{ opacity: [0.4, 1, 0.4] }}
-        transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }} />
-      {/* Icon */}
-      <motion.div
-        className="relative text-8xl select-none"
-        style={{ filter: `drop-shadow(0 0 20px ${accent}) drop-shadow(0 0 40px ${accent}80)` }}
-        animate={{ scale: [1, 1.04, 1] }}
-        transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-      >
-        {icon}
-      </motion.div>
-    </div>
-  )
-}
 
 // ── Spec table ──────────────────────────────────────────────────────────────
 
@@ -335,7 +298,7 @@ function ProductDetailContent({ product, accent, accentDim, related, navigate })
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
               <div className="relative mb-4">
-                <NeonHero color={product.color} icon={product.icon} />
+                <ProductGallery images={product.images} color={product.color} icon={product.icon} />
                 {product.badge && (
                   <div className="absolute top-4 left-4 font-display uppercase tracking-widest px-3 py-1"
                     style={{ fontSize: '0.6rem', color: accent, border: `1px solid ${accent}`, boxShadow: `0 0 10px ${accent}80`, backgroundColor: `${accent}12` }}>
@@ -489,7 +452,7 @@ function ProductDetailContent({ product, accent, accentDim, related, navigate })
               </h2>
             </motion.div>
 
-            <div className={`grid gap-5 grid-cols-1 sm:grid-cols-${Math.min(related.length, 3)} lg:grid-cols-${Math.min(related.length, 3)}`}>
+            <div className={`grid gap-5 ${related.length === 1 ? 'grid-cols-1' : related.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
               {related.map((rel, i) => (
                 <motion.div key={rel.slug}
                   initial={{ opacity: 0, y: 24 }}

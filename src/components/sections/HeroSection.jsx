@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import Button from '../ui/Button'
 
 /**
@@ -40,6 +41,20 @@ const heroStats = [
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function HeroSection() {
+  const prefersReducedMotion = useReducedMotion()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)')
+    setIsMobile(mq.matches)
+    const handler = e => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  // Disable GPU-heavy blur pulse on mobile or when user prefers reduced motion
+  const animateOrbs = !isMobile && !prefersReducedMotion
+
   const scrollTo = id => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
@@ -71,13 +86,13 @@ export default function HeroSection() {
       <motion.div
         className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{ backgroundColor: '#ff2d78', opacity: 0.065, filter: 'blur(140px)' }}
-        animate={{ scale: [1, 1.12, 1], opacity: [0.065, 0.09, 0.065] }}
+        animate={animateOrbs ? { scale: [1, 1.12, 1], opacity: [0.065, 0.09, 0.065] } : false}
         transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
       />
       <motion.div
         className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{ backgroundColor: '#00e5ff', opacity: 0.055, filter: 'blur(130px)' }}
-        animate={{ scale: [1, 1.15, 1], opacity: [0.055, 0.08, 0.055] }}
+        animate={animateOrbs ? { scale: [1, 1.15, 1], opacity: [0.055, 0.08, 0.055] } : false}
         transition={{ repeat: Infinity, duration: 7, ease: 'easeInOut', delay: 1.5 }}
       />
 
@@ -133,7 +148,7 @@ export default function HeroSection() {
             <motion.span
               className="block text-4xl sm:text-6xl lg:text-8xl"
               style={{ color: '#ff2d78' }}
-              animate={{ textShadow: glowPink }}
+              animate={animateOrbs ? { textShadow: glowPink } : { textShadow: glowPink[0] }}
               transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
             >
               Özel Neon Tabela
@@ -216,13 +231,13 @@ export default function HeroSection() {
                 <motion.div
                   className="font-display text-3xl sm:text-4xl font-black"
                   style={{ color: stat.color }}
-                  animate={{
+                  animate={animateOrbs ? {
                     textShadow: [
                       `0 0 10px ${stat.color}`,
                       `0 0 22px ${stat.color}, 0 0 40px ${stat.color}88`,
                       `0 0 10px ${stat.color}`,
                     ],
-                  }}
+                  } : { textShadow: `0 0 10px ${stat.color}` }}
                   transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut', delay: Math.random() * 1.5 }}
                 >
                   {stat.num}

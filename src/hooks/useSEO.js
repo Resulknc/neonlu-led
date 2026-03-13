@@ -85,14 +85,14 @@ export default function useSEO({
       document.title = prevTitle
 
       Object.entries(prev).forEach(([sel, state]) => {
-        const el = document.querySelector(
-          sel.startsWith('link') ? `link[rel="${sel}"]` : sel
-        )
+        // meta selectors contain '[', link entries are stored as the rel value (e.g. "canonical")
+        const isLink = !sel.includes('[')
+        const el = document.querySelector(isLink ? `link[rel="${sel}"]` : sel)
         if (!el) return
         if (state.created) {
           el.remove()
         } else {
-          el.setAttribute('content', state.prev ?? '')
+          el.setAttribute(isLink ? 'href' : 'content', state.prev ?? '')
         }
       })
     }
