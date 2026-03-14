@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import Button from '../ui/Button'
 
@@ -41,6 +42,7 @@ const heroStats = [
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function HeroSection() {
+  const navigate = useNavigate()
   const prefersReducedMotion = useReducedMotion()
   const [isMobile, setIsMobile] = useState(false)
 
@@ -55,7 +57,6 @@ export default function HeroSection() {
   // Disable GPU-heavy blur pulse on mobile or when user prefers reduced motion
   const animateOrbs = !isMobile && !prefersReducedMotion
 
-  const scrollTo = id => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
     <section
@@ -185,12 +186,12 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             {/* Primary CTA — "Hemen Sipariş Ver" */}
-            <Button variant="primary" onClick={() => scrollTo('contact')}>
+            <Button variant="primary" onClick={() => navigate('/iletisim')}>
               Hemen Sipariş Ver
             </Button>
 
             {/* Secondary CTA */}
-            <Button variant="outline-blue" onClick={() => scrollTo('products')}>
+            <Button variant="outline-blue" onClick={() => navigate('/urunler')}>
               Neon Tabelaları İncele
             </Button>
           </motion.div>

@@ -248,40 +248,6 @@ export default function ContactSection() {
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* ── Page heading ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="h-px w-12" style={{ backgroundColor: '#ff2d78', boxShadow: '0 0 6px #ff2d78' }} />
-            <span className="font-display text-xs uppercase tracking-[0.4em]" style={{ color: '#ff2d78', textShadow: '0 0 10px #ff2d78' }}>
-              Neon Tabela Siparişi
-            </span>
-            <span className="h-px w-12" style={{ backgroundColor: '#ff2d78', boxShadow: '0 0 6px #ff2d78' }} />
-          </div>
-
-          <h2 className="font-display text-4xl lg:text-6xl font-black text-white mb-5 leading-tight">
-            BİZE{' '}
-            <motion.span
-              style={{ color: '#ff2d78' }}
-              animate={{ textShadow: ['0 0 18px #ff2d78, 0 0 36px rgba(255,45,120,0.4)', '0 0 30px #ff2d78, 0 0 60px rgba(255,45,120,0.6)', '0 0 18px #ff2d78, 0 0 36px rgba(255,45,120,0.4)'] }}
-              transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
-            >
-              ULAŞIN
-            </motion.span>
-          </h2>
-
-          <p className="font-body text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#6b7280' }}>
-            Neon tabela siparişi için bizimle iletişime geçin.
-            Tasarım ekibimiz{' '}
-            <strong style={{ color: '#9ca3af', fontWeight: 500 }}>24 saat içinde</strong> ücretsiz teklif ve tasarım taslağıyla size ulaşsın.
-          </p>
-        </motion.div>
-
         {/* ── Two-column layout ── */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
 

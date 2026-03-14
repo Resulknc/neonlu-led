@@ -85,6 +85,7 @@ const cardVariants = {
 // ── Product Card ────────────────────────────────────────────────────────────
 
 function ProductCard({ product }) {
+  const [imgError, setImgError] = useState(false)
   const accent = product.color === 'pink' ? '#ff2d78' : '#00e5ff'
   const glowSm = product.color === 'pink' ? 'rgba(255,45,120,0.12)' : 'rgba(0,229,255,0.12)'
   const glowMd = product.color === 'pink' ? 'rgba(255,45,120,0.22)' : 'rgba(0,229,255,0.22)'
@@ -116,7 +117,22 @@ function ProductCard({ product }) {
       {/* Image area — fully clickable link to detail page */}
       <Link to={`/urun/${product.slug}`} style={{ textDecoration: 'none', display: 'block' }} tabIndex={-1} aria-hidden="true">
         <div className="relative shrink-0">
-          <NeonImage color={product.color} icon={product.icon} label={product.imageLabel} />
+          {product.image && !imgError ? (
+            <div className="relative overflow-hidden" style={{ height: 168, backgroundColor: '#0a0a0a', borderBottom: `1px solid ${accent}28` }}>
+              <img
+                src={product.image}
+                alt={product.images?.[0]?.alt || product.title}
+                className="w-full h-full object-cover"
+                style={{ display: 'block', transition: 'transform 0.4s ease' }}
+                onError={() => setImgError(true)}
+                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.06)')}
+                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+              />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to top, ${accent}18 0%, transparent 60%)` }} />
+            </div>
+          ) : (
+            <NeonImage color={product.color} icon={product.icon} label={product.imageLabel} />
+          )}
           {product.badge && (
             <div
               className="absolute top-3 left-3 font-display uppercase tracking-widest px-2 py-0.5"
@@ -215,40 +231,6 @@ export default function ProductsSection() {
         style={{ backgroundColor: '#ff2d78', opacity: 0.03, filter: 'blur(100px)' }} />
 
       <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* ── Section heading ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-12"
-        >
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="h-px w-12" style={{ backgroundColor: '#00e5ff', boxShadow: '0 0 6px #00e5ff' }} />
-            <span className="font-display text-xs uppercase tracking-[0.4em]" style={{ color: '#00e5ff', textShadow: '0 0 10px #00e5ff' }}>
-              Neon Tabela Koleksiyonu
-            </span>
-            <span className="h-px w-12" style={{ backgroundColor: '#00e5ff', boxShadow: '0 0 6px #00e5ff' }} />
-          </div>
-
-          <h2 className="font-display text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
-            NEON TABELA VE{' '}
-            <motion.span
-              style={{ color: '#00e5ff' }}
-              animate={{ textShadow: ['0 0 18px #00e5ff, 0 0 36px rgba(0,229,255,0.4)', '0 0 32px #00e5ff, 0 0 60px rgba(0,229,255,0.6)', '0 0 18px #00e5ff, 0 0 36px rgba(0,229,255,0.4)'] }}
-              transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
-            >
-              LED TABELA
-            </motion.span>
-            {' '}MODELLERİ
-          </h2>
-
-          <p className="font-body text-lg max-w-2xl mx-auto" style={{ color: '#6b7280' }}>
-            İşletme reklam tabelasından ev dekoruna, düğün neon tabelasından gaming LED tabelaya —
-            her ihtiyaca <strong style={{ color: '#9ca3af', fontWeight: 500 }}>özel neon tasarım</strong>. Tüm modellerde ücretsiz tasarım ve Türkiye geneli kargo.
-          </p>
-        </motion.div>
 
         {/* ── Category filter tabs ── */}
         <motion.div

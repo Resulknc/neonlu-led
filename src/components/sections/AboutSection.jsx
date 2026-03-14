@@ -75,31 +75,6 @@ function CompanyStory() {
         style={{ backgroundColor: '#00e5ff', opacity: 0.03, filter: 'blur(110px)' }} />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <SectionLabel>Marka Hikayemiz</SectionLabel>
-          <h2 id="hikaye-heading" className="font-display text-4xl lg:text-5xl font-black text-white mb-5 leading-tight">
-            2019'DAN BU YANA{' '}
-            <motion.span
-              style={{ color: '#ff2d78' }}
-              animate={{ textShadow: ['0 0 18px #ff2d78, 0 0 36px rgba(255,45,120,0.4)', '0 0 30px #ff2d78, 0 0 60px rgba(255,45,120,0.6)', '0 0 18px #ff2d78, 0 0 36px rgba(255,45,120,0.4)'] }}
-              transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
-            >
-              NEON TABELA ÜRETİMİ
-            </motion.span>
-          </h2>
-          <p className="font-body text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: '#6b7280' }}>
-            Neonlu LED olarak{' '}
-            <strong style={{ color: '#9ca3af', fontWeight: 500 }}>özel neon tabela üretimi</strong> ve{' '}
-            <strong style={{ color: '#9ca3af', fontWeight: 500 }}>LED tabela çözümleri</strong> konusunda
-            uzmanlaşmış bir Türk markasıyız. Her sipariş sıfırdan tasarlanır; seri üretim yoktur.
-          </p>
-        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
