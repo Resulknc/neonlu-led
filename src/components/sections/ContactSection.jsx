@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
-import emailjs from '@emailjs/browser'
+
+const WHATSAPP_NUMBER = '905417679760'
 
 /**
  * Neonlu LED — Bize Ulaşın / İletişim Sayfası
@@ -218,32 +219,24 @@ function SuccessState({ onReset }) {
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
-  const [sendError, setSendError] = useState(false)
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({ mode: 'onTouched' })
 
-  const onSubmit = async (data) => {
-    setSendError(false)
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          phone: data.phone || 'Belirtilmedi',
-          message: data.message,
-          to_email: 'ledneonlu@gmail.com',
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      setSubmitted(true)
-    } catch {
-      setSendError(true)
-    }
+  const onSubmit = (data) => {
+    const text = [
+      'Merhaba, neon tabela hakkında bilgi almak istiyorum.',
+      '',
+      `*Ad Soyad:* ${data.name}`,
+      `*E-posta:* ${data.email}`,
+      `*Telefon:* ${data.phone || 'Belirtilmedi'}`,
+      `*Mesaj:* ${data.message}`,
+    ].join('\n')
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank')
+    setSubmitted(true)
   }
 
-  const handleReset = () => { setSubmitted(false); setSendError(false); reset() }
+  const handleReset = () => { setSubmitted(false); reset() }
 
   return (
     <section
@@ -495,22 +488,6 @@ export default function ContactSection() {
                           Bilgileriniz yalnızca neon tabela siparişinizi işlemek için kullanılır ve üçüncü şahıslarla paylaşılmaz.
                         </p>
 
-                        {/* Send error */}
-                        <AnimatePresence>
-                          {sendError && (
-                            <motion.p
-                              role="alert"
-                              initial={{ opacity: 0, y: -6 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -6 }}
-                              className="font-body text-sm px-4 py-3 flex items-center gap-2"
-                              style={{ color: '#ff6b6b', border: '1px solid rgba(255,107,107,0.25)', backgroundColor: 'rgba(255,107,107,0.06)' }}
-                            >
-                              <span aria-hidden="true">⚠</span>
-                              Mesaj gönderilemedi. Lütfen tekrar deneyin veya doğrudan <a href="mailto:ledneonlu@gmail.com" style={{ color: '#ff2d78', textDecoration: 'underline' }}>ledneonlu@gmail.com</a> adresine yazın.
-                            </motion.p>
-                          )}
-                        </AnimatePresence>
 
                         {/* Submit */}
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
@@ -528,40 +505,24 @@ export default function ContactSection() {
                           {/* Glowing submit button */}
                           <motion.button
                             type="submit"
-                            disabled={isSubmitting}
                             className="w-full sm:w-auto order-1 sm:order-2 font-display text-xs uppercase tracking-widest px-10 py-4 flex items-center justify-center gap-3 text-white"
                             style={{
-                              backgroundColor: '#ff2d78',
-                              boxShadow: isSubmitting
-                                ? '0 0 8px rgba(255,45,120,0.3)'
-                                : '0 0 16px #ff2d78, 0 0 32px rgba(255,45,120,0.45)',
-                              opacity: isSubmitting ? 0.7 : 1,
-                              cursor: isSubmitting ? 'wait' : 'pointer',
+                              backgroundColor: '#25d366',
+                              boxShadow: '0 0 16px #25d366, 0 0 32px rgba(37,211,102,0.4)',
+                              cursor: 'pointer',
                               border: 'none',
                             }}
-                            whileHover={!isSubmitting ? { boxShadow: '0 0 26px #ff2d78, 0 0 55px rgba(255,45,120,0.6)' } : {}}
-                            whileTap={!isSubmitting ? { scale: 0.97 } : {}}
+                            whileHover={{ boxShadow: '0 0 26px #25d366, 0 0 55px rgba(37,211,102,0.55)' }}
+                            whileTap={{ scale: 0.97 }}
                             transition={{ duration: 0.2 }}
                           >
-                            {isSubmitting ? (
-                              <>
-                                <motion.span
-                                  className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full shrink-0"
-                                  animate={{ rotate: 360 }}
-                                  transition={{ repeat: Infinity, duration: 0.7, ease: 'linear' }}
-                                />
-                                Gönderiliyor...
-                              </>
-                            ) : (
-                              <>
-                                <motion.span
-                                  className="w-1.5 h-1.5 rounded-full bg-white shrink-0"
-                                  animate={{ opacity: [1, 0.3, 1] }}
-                                  transition={{ repeat: Infinity, duration: 1.8 }}
-                                />
-                                Mesaj Gönder
-                              </>
-                            )}
+                            <>
+                              {/* WhatsApp icon */}
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                              </svg>
+                              WhatsApp'tan Gönder
+                            </>
                           </motion.button>
                         </div>
 
