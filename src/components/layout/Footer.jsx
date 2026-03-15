@@ -72,9 +72,9 @@ const companyLinks = [
 ]
 
 const contactDetails = [
-  { icon: '📍', text: 'Neon Caddesi No:123, Işık Şehri, İstanbul 34000' },
-  { icon: '📧', text: 'merhaba@neonluled.com', href: 'mailto:merhaba@neonluled.com' },
-  { icon: '📞', text: '+90 (555) 123-4567', href: 'tel:+905551234567' },
+  { icon: '📍', text: 'Siyavuşpaşa Mah. Fetih Cad. No:107, Bahçelievler, İstanbul' },
+  { icon: '📧', text: 'ledneonlu@gmail.com', href: 'mailto:ledneonlu@gmail.com' },
+  { icon: '📞', text: '+90 (541) 767-9760', href: 'tel:+905417679760' },
   { icon: '⏰', text: 'Pzt – Cum: 09:00 – 18:00' },
 ]
 

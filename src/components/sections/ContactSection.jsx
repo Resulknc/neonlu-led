@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 /**
  * Neonlu LED — Bize Ulaşın / İletişim Sayfası
@@ -20,8 +21,8 @@ const contactCards = [
       </svg>
     ),
     label: 'Telefon',
-    value: '+90 (555) 123-4567',
-    href: 'tel:+905551234567',
+    value: '+90 (541) 767-9760',
+    href: 'tel:+905417679760',
     note: 'Pzt – Cum 09:00–18:00',
   },
   {
@@ -32,8 +33,8 @@ const contactCards = [
       </svg>
     ),
     label: 'E-posta',
-    value: 'merhaba@neonluled.com',
-    href: 'mailto:merhaba@neonluled.com',
+    value: 'ledneonlu@gmail.com',
+    href: 'mailto:ledneonlu@gmail.com',
     note: 'Ort. yanıt: 2 saat',
   },
   {
@@ -44,7 +45,7 @@ const contactCards = [
       </svg>
     ),
     label: 'Konum',
-    value: 'Neon Caddesi No:123\nIşık Şehri, İstanbul 34000',
+    value: 'Siyavuşpaşa Mah. Fetih Caddesi\nNo:107, Bahçelievler, İstanbul',
     href: null,
     note: 'Türkiye geneli kargo',
   },
@@ -217,15 +218,32 @@ function SuccessState({ onReset }) {
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
+  const [sendError, setSendError] = useState(false)
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({ mode: 'onTouched' })
 
-  const onSubmit = async () => {
-    await new Promise(r => setTimeout(r, 700))
-    setSubmitted(true)
+  const onSubmit = async (data) => {
+    setSendError(false)
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone || 'Belirtilmedi',
+          message: data.message,
+          to_email: 'ledneonlu@gmail.com',
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      setSubmitted(true)
+    } catch {
+      setSendError(true)
+    }
   }
 
-  const handleReset = () => { setSubmitted(false); reset() }
+  const handleReset = () => { setSubmitted(false); setSendError(false); reset() }
 
   return (
     <section
@@ -438,6 +456,24 @@ export default function ContactSection() {
                           />
                         </Field>
 
+                        {/* Telefon */}
+                        <Field label="Telefon" id="phone" error={errors.phone}>
+                          <NeonInput
+                            id="phone"
+                            type="tel"
+                            placeholder="+90 5xx xxx xx xx"
+                            hasError={!!errors.phone}
+                            aria-invalid={!!errors.phone}
+                            autoComplete="tel"
+                            {...register('phone', {
+                              pattern: {
+                                value: /^[+\d\s()-]{7,20}$/,
+                                message: 'Geçerli bir telefon numarası giriniz.',
+                              },
+                            })}
+                          />
+                        </Field>
+
                         {/* Mesaj */}
                         <Field label="Mesajınız" id="message" error={errors.message} required>
                           <NeonTextarea
@@ -458,6 +494,23 @@ export default function ContactSection() {
                         <p className="font-body text-xs" style={{ color: '#4b5563' }}>
                           Bilgileriniz yalnızca neon tabela siparişinizi işlemek için kullanılır ve üçüncü şahıslarla paylaşılmaz.
                         </p>
+
+                        {/* Send error */}
+                        <AnimatePresence>
+                          {sendError && (
+                            <motion.p
+                              role="alert"
+                              initial={{ opacity: 0, y: -6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -6 }}
+                              className="font-body text-sm px-4 py-3 flex items-center gap-2"
+                              style={{ color: '#ff6b6b', border: '1px solid rgba(255,107,107,0.25)', backgroundColor: 'rgba(255,107,107,0.06)' }}
+                            >
+                              <span aria-hidden="true">⚠</span>
+                              Mesaj gönderilemedi. Lütfen tekrar deneyin veya doğrudan <a href="mailto:ledneonlu@gmail.com" style={{ color: '#ff2d78', textDecoration: 'underline' }}>ledneonlu@gmail.com</a> adresine yazın.
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
 
                         {/* Submit */}
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
