@@ -4,138 +4,45 @@ import { motion, AnimatePresence } from 'framer-motion'
 import useSEO from '../hooks/useSEO'
 import PageWrapper from '../components/common/PageWrapper'
 import Lightbox from '../components/common/Lightbox'
+import { allImages } from '../utils/imageUtils'
+import { products } from '../data/products'
 
 /**
  * Neonlu LED — Projelerimiz
- * Real neon sign project gallery with category filtering,
- * neon hover effects, and SEO-optimised Turkish content.
+ * Gallery is built automatically from every image in /public/images.
+ * Drop a new photo into that folder and rebuild — no code changes needed.
  */
 
-// ── Project data ─────────────────────────────────────────────────────────────
+// ── Category label mapping ────────────────────────────────────────────────────
 
-const PROJECTS = [
-  {
-    id: 'is-yeri-neon-tabelasi-1',
-    title: 'İşletme Neon Tabelası',
-    description: 'Mağaza ve ofis girişleri için profesyonel görünüm sunan yüksek parlaklıklı LED neon tabela.',
-    category: 'Mağaza & Ofis',
-    accent: '#ff2d78',
-    icon: '🏢',
-    src: '/images/is-yeri-neon-tabelasi-1.jpeg',
-    alt: 'işletme neon tabelası mağaza ofis girişi led tabela',
-    productHref: '/urun/is-yeri-neon-tabelasi',
-  },
-  {
-    id: 'is-yeri-neon-tabelasi-2',
-    title: 'Ofis LED Neon Yazı',
-    description: 'Kurumsal kimliğe uygun, logo entegreli özel neon tabela çözümü. Uzun ömürlü LED neon tüp kullanımı.',
-    category: 'Mağaza & Ofis',
-    accent: '#ff2d78',
-    icon: '💼',
-    src: '/images/is-yeri-neon-tabelasi-2.jpeg',
-    alt: 'ofis led neon yazı kurumsal logo tabela',
-    productHref: '/urun/is-yeri-neon-tabelasi',
-  },
-  {
-    id: 'dukkan-reklam-tabelasi-1',
-    title: 'Dükkan Reklam Tabelası',
-    description: 'Dükkanın vitrinini öne çıkaran canlı renkli neon reklam tabelası. Müşteri dikkatini anında çeker.',
-    category: 'Dükkan & Reklam',
-    accent: '#00e5ff',
-    icon: '🏪',
-    src: '/images/dukkan-reklam-tabelasi-1.jpeg',
-    alt: 'dükkan reklam tabelası neon tabela vitrin canlı renkli',
-    productHref: '/urun/dukkan-reklam-tabelasi',
-  },
-  {
-    id: 'dukkan-reklam-tabelasi-2',
-    title: 'Neon Vitrin Tabelası',
-    description: 'Alışveriş merkezleri ve cadde mağazaları için göz alıcı neon vitrin tabelası tasarımı.',
-    category: 'Dükkan & Reklam',
-    accent: '#00e5ff',
-    icon: '🛍️',
-    src: '/images/dukkan-reklam-tabelasi-2.jpeg',
-    alt: 'neon vitrin tabelası alışveriş merkezi cadde mağaza',
-    productHref: '/urun/dukkan-reklam-tabelasi',
-  },
-  {
-    id: 'dugun-neon-tabelasi',
-    title: 'Düğün Neon Tabelası',
-    description: 'Düğün, nişan ve özel organizasyonlar için kişiye özel neon tabela. "Mr & Mrs" ve özel metin tasarımları.',
-    category: 'Düğün & Etkinlik',
-    accent: '#00e5ff',
-    icon: '💍',
-    src: '/images/dugun-neon-tabelasi-1.jpeg',
-    alt: 'düğün neon tabela mr mrs tasarımı gerçek proje',
-    productHref: '/urun/dugun-neon-tabelasi',
-  },
-  {
-    id: 'otel-lobi-neon-tabela',
-    title: 'Otel Lobi Neon Tabela',
-    description: 'Otel, butik ve lobi alanları için lüks LED neon tabela çözümleri. Kurumsal kimliği vurgulayan özel tasarım.',
-    category: 'Kurumsal & Otel',
-    accent: '#ff2d78',
-    icon: '🏨',
-    src: '/images/otel-lobi-neon-tabela-1.jpeg',
-    alt: 'otel lobi neon tabela kurumsal tasarım gerçek proje',
-    productHref: '/urun/otel-lobi-neon-tabela',
-  },
-  {
-    id: 'muzik-studyo-neon-tabela-1',
-    title: 'Müzik Stüdyo Tabela',
-    description: 'Kayıt odası ve müzik stüdyosu için ses dalgası ve "On Air" tasarımlı LED neon tabela.',
-    category: 'Stüdyo & Sanat',
-    accent: '#00e5ff',
-    icon: '🎵',
-    src: '/images/muzik-studyo-neon-tabela-1.jpeg',
-    alt: 'müzik stüdyo neon tabela on air tasarımı gerçek proje',
-    productHref: '/urun/muzik-studyo-neon-tabela',
-  },
-  {
-    id: 'muzik-studyo-neon-tabela-2',
-    title: 'Kayıt Odası Neon Tabela',
-    description: 'Ses dalgası motifli özel kayıt odası neon tabelası. Akustik panel duvarlarla uyumlu hafif tasarım.',
-    category: 'Stüdyo & Sanat',
-    accent: '#00e5ff',
-    icon: '🎙️',
-    src: '/images/muzik-studyo-neon-tabela-2.jpeg',
-    alt: 'kayıt odası led neon tabela ses dalgası gerçek proje',
-    productHref: '/urun/muzik-studyo-neon-tabela',
-  },
-  {
-    id: 'ev-dekor-neon-tabela',
-    title: 'Ev Dekorasyon Neon',
-    description: 'Yatak odası, oturma odası ve oyun odaları için romantik ve şık LED neon duvar dekorasyonu.',
-    category: 'Ev & Dekorasyon',
-    accent: '#ff2d78',
-    icon: '🏠',
-    src: '/images/ev-dekor-neon-tabela-1.jpeg',
-    alt: 'ev dekorasyon neon tabela yatak odası duvar dekorasyonu led',
-    productHref: '/urun/ev-dekor-neon-tabela',
-  },
-  {
-    id: 'duvar-neon-tabela',
-    title: 'Duvar Neon Tabelası',
-    description: 'Ev, ofis ve mekan duvarları için büyük format neon tabela. Feature wall ve odak noktası yaratma.',
-    category: 'Ev & Dekorasyon',
-    accent: '#ff2d78',
-    icon: '🖼️',
-    src: '/images/duvar-neon-tabela-1.jpeg',
-    alt: 'duvar neon tabela dekor led ışık tasarımı gerçek proje',
-    productHref: '/urun/duvar-neon-tabela',
-  },
-  {
-    id: 'spor-salonu-neon-tabela',
-    title: 'Spor Salonu Neon Tabela',
-    description: 'Fitness salonları ve spor merkezleri için motivasyon artırıcı dinamik neon tabela tasarımı.',
-    category: 'Spor & Fitness',
-    accent: '#ff2d78',
-    icon: '💪',
-    src: '/images/spor-salonu-neon-tabela-1.jpeg',
-    alt: 'spor salonu neon tabela fitness merkezi motivasyon dinamik',
-    productHref: '/urun/spor-salonu-neon-tabela',
-  },
-]
+const CATEGORY_LABEL = {
+  isletme: 'Mağaza & Ofis',
+  etkinlik: 'Düğün & Etkinlik',
+  dekor: 'Ev & Dekorasyon',
+  gaming: 'Stüdyo & Sanat',
+}
+
+// ── Project data (auto-generated from manifest) ───────────────────────────────
+
+const PROJECTS = allImages.map(img => {
+  const product = products.find(p => p.slug === img.slug)
+  const categoryKey = product?.category ?? ''
+  return {
+    id: `${img.slug}-${img.n}`,
+    title: product
+      ? (img.n === 1 ? product.title : `${product.title} #${img.n}`)
+      : img.slug.replace(/-/g, ' '),
+    description: product?.desc ?? 'Özel tasarım neon tabela projesi.',
+    category: CATEGORY_LABEL[categoryKey] ?? 'Diğer',
+    accent: product?.color === 'pink' ? '#ff2d78' : '#00e5ff',
+    icon: product?.icon ?? '💡',
+    src: img.src,
+    alt: product
+      ? `${product.title.toLowerCase()} gerçek neon tabela proje örneği ${img.n}`
+      : `${img.slug.replace(/-/g, ' ')} neon tabela`,
+    productHref: product ? `/urun/${product.slug}` : null,
+  }
+})
 
 const ALL_CATEGORIES = ['Tümü', ...Array.from(new Set(PROJECTS.map(p => p.category)))]
 

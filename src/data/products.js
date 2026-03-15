@@ -1,18 +1,18 @@
 /**
  * Neonlu LED — Ürün Kataloğu
- * Single source of truth used by ProductsSection, ProductsPreview and ProductDetailPage.
- * SEO keywords embedded in titles, descriptions and tags.
+ * Single source of truth for product metadata.
+ * Thumbnail images are derived automatically from /public/images at build time
+ * via imageUtils — no hardcoded image paths here.
  */
 
-export const products = [
+import { imagesBySlug } from '../utils/imageUtils'
+
+// ── Raw product metadata (no image paths) ─────────────────────────────────
+
+const rawProducts = [
   {
     id: 1,
     slug: 'is-yeri-neon-tabelasi',
-    image: '/images/is-yeri-neon-tabelasi-1.jpeg',
-    images: [
-      { src: '/images/is-yeri-neon-tabelasi-1.jpeg', alt: 'iş yeri neon tabela mağaza cephe örneği' },
-      { src: '/images/is-yeri-neon-tabelasi-2.jpeg', alt: 'ofis neon tabela kurumsal tasarım' },
-    ],
     category: 'isletme',
     color: 'pink',
     icon: '🏢',
@@ -52,10 +52,6 @@ export const products = [
   {
     id: 2,
     slug: 'dugun-neon-tabelasi',
-    image: '/images/dugun-neon-tabelasi-1.jpeg',
-    images: [
-      { src: '/images/dugun-neon-tabelasi-1.jpeg', alt: 'düğün neon tabela mr mrs tasarımı' },
-    ],
     category: 'etkinlik',
     color: 'blue',
     icon: '💍',
@@ -95,10 +91,6 @@ export const products = [
   {
     id: 3,
     slug: 'ev-dekor-neon-tabela',
-    image: '/images/ev-dekor-neon-tabela-1.jpeg',
-    images: [
-      { src: '/images/ev-dekor-neon-tabela-1.jpeg', alt: 'ev dekor neon tabela yatak odası tasarımı' },
-    ],
     category: 'dekor',
     color: 'pink',
     icon: '🏠',
@@ -138,8 +130,6 @@ export const products = [
   {
     id: 4,
     slug: 'kafe-neon-tabela',
-    image: '/images/kafe-neon-tabela-1.jpeg',
-    images: [],
     category: 'isletme',
     color: 'blue',
     icon: '🍹',
@@ -179,12 +169,6 @@ export const products = [
   {
     id: 5,
     slug: 'gaming-neon-tabela',
-    image: '/images/gaming-neon-tabela-1.jpg',
-    images: [
-      { src: '/images/gaming-neon-tabela-1.jpg', alt: 'gaming neon tabela oyun odası tasarımı' },
-      { src: '/images/gaming-neon-tabela-2.jpg', alt: 'rgb led tabela streamer setup dekorasyonu' },
-      { src: '/images/gaming-neon-tabela-3.jpg', alt: 'gaming setup neon ışık özel tasarım' },
-    ],
     category: 'gaming',
     color: 'pink',
     icon: '🎮',
@@ -224,12 +208,6 @@ export const products = [
   {
     id: 6,
     slug: 'neon-tabela-hediye',
-    image: '/images/neon-tabela-hediye-1.jpg',
-    images: [
-      { src: '/images/neon-tabela-hediye-1.jpg', alt: 'neon tabela hediye seti kişiye özel tasarım' },
-      { src: '/images/neon-tabela-hediye-2.jpg', alt: 'doğum günü neon ışıklı tabela led hediye' },
-      { src: '/images/neon-tabela-hediye-3.jpg', alt: 'yıl dönümü neon tabela özel ambalaj' },
-    ],
     category: 'dekor',
     color: 'blue',
     icon: '🎁',
@@ -269,11 +247,6 @@ export const products = [
   {
     id: 7,
     slug: 'dukkan-reklam-tabelasi',
-    image: '/images/dukkan-reklam-tabelasi-1.jpeg',
-    images: [
-      { src: '/images/dukkan-reklam-tabelasi-1.jpeg', alt: 'dükkan reklam tabelası neon ışıklı vitrin' },
-      { src: '/images/dukkan-reklam-tabelasi-2.jpeg', alt: 'berber kuaför neon tabela özel tasarım' },
-    ],
     category: 'isletme',
     color: 'pink',
     icon: '💈',
@@ -313,10 +286,6 @@ export const products = [
   {
     id: 8,
     slug: 'otel-lobi-neon-tabela',
-    image: '/images/otel-lobi-neon-tabela-1.jpeg',
-    images: [
-      { src: '/images/otel-lobi-neon-tabela-1.jpeg', alt: 'otel lobi neon tabela kurumsal tasarım' },
-    ],
     category: 'isletme',
     color: 'blue',
     icon: '🏨',
@@ -356,12 +325,6 @@ export const products = [
   {
     id: 9,
     slug: 'etkinlik-parti-neon-tabela',
-    image: '/images/etkinlik-parti-neon-tabela-1.jpg',
-    images: [
-      { src: '/images/etkinlik-parti-neon-tabela-1.jpg', alt: 'etkinlik neon tabela doğum günü backdrop tasarımı' },
-      { src: '/images/etkinlik-parti-neon-tabela-2.jpg', alt: 'parti neon ışık dekorasyonu led tabela kiralama' },
-      { src: '/images/etkinlik-parti-neon-tabela-3.jpg', alt: 'baby shower neon tabela organizasyon' },
-    ],
     category: 'etkinlik',
     color: 'pink',
     icon: '🎉',
@@ -401,13 +364,7 @@ export const products = [
   {
     id: 10,
     slug: 'sanat-studyo-neon-tabela',
-    image: '/images/sanat-studyo-neon-tabela-1.jpg',
-    images: [
-      { src: '/images/sanat-studyo-neon-tabela-1.jpg', alt: 'sanat stüdyo neon tabela galeri tasarımı' },
-      { src: '/images/sanat-studyo-neon-tabela-2.jpg', alt: 'fotoğraf stüdyosu neon arka plan led tabela' },
-      { src: '/images/sanat-studyo-neon-tabela-3.jpg', alt: 'özel neon sanat eseri led ışık tasarımı' },
-    ],
-    category: 'dekor',
+    category: 'gaming',
     color: 'blue',
     icon: '🎨',
     badge: null,
@@ -446,10 +403,6 @@ export const products = [
   {
     id: 11,
     slug: 'spor-salonu-neon-tabela',
-    image: '/images/spor-salonu-neon-tabela-1.jpeg',
-    images: [
-      { src: '/images/spor-salonu-neon-tabela-1.jpeg', alt: 'spor salonu neon tabela motivasyon yazısı' },
-    ],
     category: 'isletme',
     color: 'pink',
     icon: '🏋️',
@@ -489,11 +442,6 @@ export const products = [
   {
     id: 12,
     slug: 'muzik-studyo-neon-tabela',
-    image: '/images/muzik-studyo-neon-tabela-1.jpeg',
-    images: [
-      { src: '/images/muzik-studyo-neon-tabela-1.jpeg', alt: 'müzik stüdyo neon tabela on air tasarımı' },
-      { src: '/images/muzik-studyo-neon-tabela-2.jpeg', alt: 'kayıt odası led neon tabela ses dalgası' },
-    ],
     category: 'gaming',
     color: 'blue',
     icon: '🎵',
@@ -530,16 +478,9 @@ export const products = [
     deliveryDays: '7–10',
     relatedSlugs: ['gaming-neon-tabela', 'sanat-studyo-neon-tabela', 'neon-yazi'],
   },
-  // ── Extra slugs matching example URLs ──────────────────────────────────────
   {
     id: 13,
     slug: 'neon-yazi',
-    image: '/images/neon-yazi-1.jpg',
-    images: [
-      { src: '/images/neon-yazi-1.jpg', alt: 'neon yazı tabela tasarımı özel metin' },
-      { src: '/images/neon-yazi-2.jpg', alt: 'özel neon yazı led tabela örneği' },
-      { src: '/images/neon-yazi-3.jpg', alt: 'kişiye özel neon yazı tabela türkçe karakter' },
-    ],
     category: 'dekor',
     color: 'pink',
     icon: '✍️',
@@ -579,12 +520,6 @@ export const products = [
   {
     id: 14,
     slug: 'bar-neon-tabela',
-    image: '/images/bar-neon-tabela-1.jpg',
-    images: [
-      { src: '/images/bar-neon-tabela-1.jpg', alt: 'bar neon tabela tasarımı gece yaşamı' },
-      { src: '/images/bar-neon-tabela-2.jpg', alt: 'pub neon ışık led tabela giriş dekorasyonu' },
-      { src: '/images/bar-neon-tabela-3.jpg', alt: 'kokteyl bar neon dekorasyon led işletme' },
-    ],
     category: 'isletme',
     color: 'blue',
     icon: '🍺',
@@ -624,10 +559,6 @@ export const products = [
   {
     id: 15,
     slug: 'duvar-neon-tabela',
-    image: '/images/duvar-neon-tabela-1.jpeg',
-    images: [
-      { src: '/images/duvar-neon-tabela-1.jpeg', alt: 'duvar neon tabela dekor led ışık tasarımı' },
-    ],
     category: 'dekor',
     color: 'pink',
     icon: '🖼️',
@@ -667,12 +598,6 @@ export const products = [
   {
     id: 16,
     slug: 'ozel-neon-logo',
-    image: '/images/ozel-neon-logo-1.jpg',
-    images: [
-      { src: '/images/ozel-neon-logo-1.jpg', alt: 'özel neon logo led tabela marka tasarımı' },
-      { src: '/images/ozel-neon-logo-2.jpg', alt: 'şirket logosu neon ışık tabela kurumsal' },
-      { src: '/images/ozel-neon-logo-3.jpg', alt: 'kurumsal neon logo işletme tabelası özel üretim' },
-    ],
     category: 'isletme',
     color: 'pink',
     icon: '✨',
@@ -710,6 +635,17 @@ export const products = [
     relatedSlugs: ['is-yeri-neon-tabelasi', 'dukkan-reklam-tabelasi', 'otel-lobi-neon-tabela'],
   },
 ]
+
+// ── Attach thumbnail images from manifest ──────────────────────────────────
+// imagesBySlug is built at build time from /public/images — no hardcoded paths.
+
+export const products = rawProducts.map(p => ({
+  ...p,
+  // First image file matching this slug becomes the card thumbnail
+  image: imagesBySlug[p.slug]?.[0]?.src ?? null,
+}))
+
+// ── Lookup helpers ─────────────────────────────────────────────────────────
 
 /** Look up a product by slug. Returns undefined if not found. */
 export function getProductBySlug(slug) {

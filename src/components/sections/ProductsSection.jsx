@@ -121,7 +121,7 @@ function ProductCard({ product }) {
             <div className="relative overflow-hidden" style={{ height: 168, backgroundColor: '#0a0a0a', borderBottom: `1px solid ${accent}28` }}>
               <img
                 src={product.image}
-                alt={product.images?.[0]?.alt || product.title}
+                alt={`${product.title} neon tabela tasarımı`}
                 className="w-full h-full object-cover"
                 style={{ display: 'block', transition: 'transform 0.4s ease' }}
                 onError={() => setImgError(true)}

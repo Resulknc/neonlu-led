@@ -4,6 +4,7 @@ import useSEO from '../hooks/useSEO'
 import PageWrapper from '../components/common/PageWrapper'
 import ProductGallery from '../components/product/ProductGallery'
 import { getProductBySlug, getRelatedProducts } from '../data/products'
+import { getImagesForSlug } from '../utils/imageUtils'
 
 /**
  * /urun/:slug — Ürün Detay Sayfası
@@ -298,7 +299,7 @@ function ProductDetailContent({ product, accent, accentDim, related, navigate })
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
               <div className="relative mb-4">
-                <ProductGallery images={product.images} color={product.color} icon={product.icon} />
+                <ProductGallery images={getImagesForSlug(product.slug, product.title)} color={product.color} icon={product.icon} />
                 {product.badge && (
                   <div className="absolute top-4 left-4 font-display uppercase tracking-widest px-3 py-1"
                     style={{ fontSize: '0.6rem', color: accent, border: `1px solid ${accent}`, boxShadow: `0 0 10px ${accent}80`, backgroundColor: `${accent}12` }}>

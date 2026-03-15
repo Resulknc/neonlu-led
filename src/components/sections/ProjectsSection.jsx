@@ -1,51 +1,35 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { allImages } from '../../utils/imageUtils'
+import { products } from '../../data/products'
 
 /**
  * Neonlu LED — Gerçek Neon Tabela Projelerimiz
- * 4-image project gallery with neon hover glow, captions, and a CTA button.
- * Falls back to a neon placeholder card if the image fails to load.
+ * 4-image project gallery — images are read automatically from /public/images.
+ * Shows the 4 newest unique-slug images. Adding a photo to the folder and
+ * rebuilding is all that's needed to feature it here.
  */
 
-const PROJECTS = [
-  {
-    src: '/images/is-yeri-neon-tabelasi-1.jpeg',
-    alt: 'işletme led tabela neon reklam tabelası örneği',
-    caption: 'İşletme Led Tabela',
-    sub: 'Mağaza & Ofis',
-    accent: '#ff2d78',
-    icon: '🏢',
-    href: '/urun/is-yeri-neon-tabelasi',
-  },
-  {
-    src: '/images/dukkan-reklam-tabelasi-1.jpeg',
-    alt: 'dükkan reklam tabelası neon ışıklı vitrin örneği',
-    caption: 'Dükkan Reklam Tabelası',
-    sub: 'Dükkan & Reklam',
-    accent: '#00e5ff',
-    icon: '🏪',
-    href: '/urun/dukkan-reklam-tabelasi',
-  },
-  {
-    src: '/images/muzik-studyo-neon-tabela-1.jpeg',
-    alt: 'müzik stüdyo neon tabela on air tasarımı gerçek proje',
-    caption: 'Müzik Stüdyo Tabela',
-    sub: 'Stüdyo & Sanat',
-    accent: '#00e5ff',
-    icon: '🎵',
-    href: '/urun/muzik-studyo-neon-tabela',
-  },
-  {
-    src: '/images/otel-lobi-neon-tabela-1.jpeg',
-    alt: 'otel lobi neon tabela kurumsal tasarım gerçek proje',
-    caption: 'Otel Lobi Tabelası',
-    sub: 'Kurumsal & Otel',
-    accent: '#ff2d78',
-    icon: '🏨',
-    href: '/urun/otel-lobi-neon-tabela',
-  },
-]
+// Pick the first image for each unique slug, take newest 4
+const _seen = new Set()
+const PROJECTS = allImages
+  .filter(img => !_seen.has(img.slug) && _seen.add(img.slug))
+  .slice(0, 4)
+  .map(img => {
+    const product = products.find(p => p.slug === img.slug)
+    return {
+      src: img.src,
+      alt: product
+        ? `${product.title.toLowerCase()} gerçek neon tabela proje örneği`
+        : `${img.slug.replace(/-/g, ' ')} neon tabela`,
+      caption: product?.title ?? img.slug.replace(/-/g, ' '),
+      sub: product?.subtitle?.split(' için')[0] ?? 'Neon Tabela',
+      accent: product?.color === 'pink' ? '#ff2d78' : '#00e5ff',
+      icon: product?.icon ?? '💡',
+      href: product ? `/urun/${product.slug}` : '/projeler',
+    }
+  })
 
 // ── Single project card ───────────────────────────────────────────────────────
 
