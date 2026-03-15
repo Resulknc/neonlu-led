@@ -10,24 +10,6 @@ import { motion } from 'framer-motion'
 
 const PROJECTS = [
   {
-    src: '/images/kafe-neon-tabela-1..jpeg',
-    alt: 'kafe neon tabela gerçek proje örneği',
-    caption: 'Kafe Neon Tabela',
-    sub: 'Cafe & Restoran',
-    accent: '#00e5ff',
-    icon: '🍹',
-    href: '/urun/kafe-neon-tabela',
-  },
-  {
-    src: '/images/dukkan-reklam-tabelasi-2.jpeg',
-    alt: 'bar neon yazı tabelası gerçek proje',
-    caption: 'Bar Neon Yazı Tabelası',
-    sub: 'Bar & Pub',
-    accent: '#00e5ff',
-    icon: '🍺',
-    href: '/urun/bar-neon-tabela',
-  },
-  {
     src: '/images/is-yeri-neon-tabelasi-1.jpeg',
     alt: 'işletme led tabela neon reklam tabelası örneği',
     caption: 'İşletme Led Tabela',
@@ -37,13 +19,31 @@ const PROJECTS = [
     href: '/urun/is-yeri-neon-tabelasi',
   },
   {
-    src: '/images/dukkan-reklam-tabelasi-4.jpeg',
-    alt: 'özel neon logo tasarımı led tabela kurumsal',
-    caption: 'Özel Neon Logo',
-    sub: 'Kurumsal & Marka',
+    src: '/images/dukkan-reklam-tabelasi-1.jpeg',
+    alt: 'dükkan reklam tabelası neon ışıklı vitrin örneği',
+    caption: 'Dükkan Reklam Tabelası',
+    sub: 'Dükkan & Reklam',
+    accent: '#00e5ff',
+    icon: '🏪',
+    href: '/urun/dukkan-reklam-tabelasi',
+  },
+  {
+    src: '/images/muzik-studyo-neon-tabela-1.jpeg',
+    alt: 'müzik stüdyo neon tabela on air tasarımı gerçek proje',
+    caption: 'Müzik Stüdyo Tabela',
+    sub: 'Stüdyo & Sanat',
+    accent: '#00e5ff',
+    icon: '🎵',
+    href: '/urun/muzik-studyo-neon-tabela',
+  },
+  {
+    src: '/images/otel-lobi-neon-tabela-1.jpeg',
+    alt: 'otel lobi neon tabela kurumsal tasarım gerçek proje',
+    caption: 'Otel Lobi Tabelası',
+    sub: 'Kurumsal & Otel',
     accent: '#ff2d78',
-    icon: '✨',
-    href: '/urun/ozel-neon-logo',
+    icon: '🏨',
+    href: '/urun/otel-lobi-neon-tabela',
   },
 ]
 

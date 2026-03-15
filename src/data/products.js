@@ -12,7 +12,6 @@ export const products = [
     images: [
       { src: '/images/is-yeri-neon-tabelasi-1.jpeg', alt: 'iş yeri neon tabela mağaza cephe örneği' },
       { src: '/images/is-yeri-neon-tabelasi-2.jpeg', alt: 'ofis neon tabela kurumsal tasarım' },
-      { src: '/images/is-yeri-neon-tabelasi-3.jpeg', alt: 'işletme reklam tabelası led neon' },
     ],
     category: 'isletme',
     color: 'pink',
@@ -53,11 +52,9 @@ export const products = [
   {
     id: 2,
     slug: 'dugun-neon-tabelasi',
-    image: '/images/dugun-neon-tabelasi-1.jpg',
+    image: '/images/dugun-neon-tabelasi-1.jpeg',
     images: [
-      { src: '/images/dugun-neon-tabelasi-1.jpg', alt: 'düğün neon tabela mr mrs tasarımı' },
-      { src: '/images/dugun-neon-tabelasi-2.jpg', alt: 'nişan organizasyon neon ışık dekorasyonu' },
-      { src: '/images/dugun-neon-tabelasi-3.jpg', alt: 'düğün salonu neon tabela kiralama' },
+      { src: '/images/dugun-neon-tabelasi-1.jpeg', alt: 'düğün neon tabela mr mrs tasarımı' },
     ],
     category: 'etkinlik',
     color: 'blue',
@@ -141,11 +138,8 @@ export const products = [
   {
     id: 4,
     slug: 'kafe-neon-tabela',
-    image: '/images/kafe-neon-tabela-1..jpeg',
-    images: [
-      { src: '/images/kafe-neon-tabela-1..jpeg', alt: 'kafe neon tabela örneği atmosfer tasarımı' },
-      { src: '/images/kafe-neon-tabela-2.jpeg', alt: 'restoran led tabela özel tasarım' },
-    ],
+    image: '/images/kafe-neon-tabela-1.jpeg',
+    images: [],
     category: 'isletme',
     color: 'blue',
     icon: '🍹',
@@ -279,8 +273,6 @@ export const products = [
     images: [
       { src: '/images/dukkan-reklam-tabelasi-1.jpeg', alt: 'dükkan reklam tabelası neon ışıklı vitrin' },
       { src: '/images/dukkan-reklam-tabelasi-2.jpeg', alt: 'berber kuaför neon tabela özel tasarım' },
-      { src: '/images/dukkan-reklam-tabelasi-3.jpeg', alt: 'butik mağaza neon led reklam tabelası' },
-      { src: '/images/dukkan-reklam-tabelasi-4.jpeg', alt: 'dükkan neon reklam tabelası gece görünümü' },
     ],
     category: 'isletme',
     color: 'pink',
@@ -321,11 +313,9 @@ export const products = [
   {
     id: 8,
     slug: 'otel-lobi-neon-tabela',
-    image: '/images/otel-lobi-neon-tabela-1.jpg',
+    image: '/images/otel-lobi-neon-tabela-1.jpeg',
     images: [
-      { src: '/images/otel-lobi-neon-tabela-1.jpg', alt: 'otel lobi neon tabela kurumsal tasarım' },
-      { src: '/images/otel-lobi-neon-tabela-2.jpg', alt: 'butik otel led tabela resepsiyon neon' },
-      { src: '/images/otel-lobi-neon-tabela-3.jpg', alt: 'kurumsal işletme tabelası lobi neon ışık' },
+      { src: '/images/otel-lobi-neon-tabela-1.jpeg', alt: 'otel lobi neon tabela kurumsal tasarım' },
     ],
     category: 'isletme',
     color: 'blue',
@@ -499,11 +489,10 @@ export const products = [
   {
     id: 12,
     slug: 'muzik-studyo-neon-tabela',
-    image: '/images/muzik-studyo-neon-tabela-1.jpg',
+    image: '/images/muzik-studyo-neon-tabela-1.jpeg',
     images: [
-      { src: '/images/muzik-studyo-neon-tabela-1.jpg', alt: 'müzik stüdyo neon tabela on air tasarımı' },
-      { src: '/images/muzik-studyo-neon-tabela-2.jpg', alt: 'kayıt odası led neon tabela ses dalgası' },
-      { src: '/images/muzik-studyo-neon-tabela-3.jpg', alt: 'stüdyo neon ışık dekorasyonu özel tasarım' },
+      { src: '/images/muzik-studyo-neon-tabela-1.jpeg', alt: 'müzik stüdyo neon tabela on air tasarımı' },
+      { src: '/images/muzik-studyo-neon-tabela-2.jpeg', alt: 'kayıt odası led neon tabela ses dalgası' },
     ],
     category: 'gaming',
     color: 'blue',
@@ -635,11 +624,9 @@ export const products = [
   {
     id: 15,
     slug: 'duvar-neon-tabela',
-    image: '/images/duvar-neon-tabela-1.jpg',
+    image: '/images/duvar-neon-tabela-1.jpeg',
     images: [
-      { src: '/images/duvar-neon-tabela-1.jpg', alt: 'duvar neon tabela dekor led ışık tasarımı' },
-      { src: '/images/duvar-neon-tabela-2.jpg', alt: 'büyük format neon duvar dekorasyonu feature wall' },
-      { src: '/images/duvar-neon-tabela-3.jpg', alt: 'özel neon duvar tabelası led sanat eseri' },
+      { src: '/images/duvar-neon-tabela-1.jpeg', alt: 'duvar neon tabela dekor led ışık tasarımı' },
     ],
     category: 'dekor',
     color: 'pink',
