@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import useSEO from '../hooks/useSEO'
+import useJsonLD from '../hooks/useJsonLD'
+import { products } from '../data/products'
 import PageWrapper from '../components/common/PageWrapper'
 import ProductsSection from '../components/sections/ProductsSection'
 
@@ -74,6 +76,21 @@ export default function UrunlerPage() {
     title: 'Neon Tabela ve Led Tabela Modelleri | Neonlu LED',
     description: 'Özel neon tabela ve LED tabela modelleri: iş yeri, düğün, cafe, gaming, ev dekor, dükkan reklam tabelası ve daha fazlası. 12 farklı kategori, ücretsiz tasarım, Türkiye geneli kargo. Hemen fiyat teklifi alın.',
     canonical: 'https://neonluled.com/urunler',
+  })
+
+  useJsonLD({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Neon Tabela ve LED Tabela Modelleri',
+    url: 'https://neonluled.com/urunler',
+    numberOfItems: products.length,
+    itemListElement: products.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.title,
+      url: `https://neonluled.com/urun/${p.slug}`,
+      image: p.image ? `https://neonluled.com${p.image}` : undefined,
+    })),
   })
 
   return (

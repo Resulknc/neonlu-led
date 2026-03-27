@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import useSEO from '../hooks/useSEO'
+import useJsonLD from '../hooks/useJsonLD'
 import PageWrapper from '../components/common/PageWrapper'
 import ProductGallery from '../components/product/ProductGallery'
 import { getProductBySlug, getRelatedProducts } from '../data/products'
@@ -230,7 +231,38 @@ function ProductDetailContent({ product, accent, accentDim, related, navigate })
     title: `${product.title} | Neonlu LED`,
     description: `${product.subtitle}. ${product.desc} Ücretsiz tasarım, ${product.deliveryDays} iş günü teslimat. ${product.price} başlayan fiyatlarla teklif alın.`,
     canonical: `https://neonluled.com/urun/${product.slug}`,
+    ogImage: product.image ? `https://neonluled.com${product.image}` : undefined,
   })
+
+  useJsonLD([
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: product.title,
+      description: `${product.subtitle}. ${product.longDesc}`,
+      image: product.image ? `https://neonluled.com${product.image}` : undefined,
+      sku: product.slug,
+      brand: { '@type': 'Brand', name: 'Neonlu LED' },
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'TRY',
+        price: product.price.replace(/[^0-9]/g, '') || '3500',
+        priceValidUntil: '2027-01-01',
+        availability: 'https://schema.org/InStock',
+        url: `https://neonluled.com/urun/${product.slug}`,
+        seller: { '@type': 'Organization', name: 'Neonlu LED' },
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://neonluled.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Ürünler', item: 'https://neonluled.com/urunler' },
+        { '@type': 'ListItem', position: 3, name: product.title, item: `https://neonluled.com/urun/${product.slug}` },
+      ],
+    },
+  ])
 
   return (
     <PageWrapper>
