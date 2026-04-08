@@ -7,12 +7,16 @@ import Footer from './components/layout/Footer'
 import ScrollToTop from './components/common/ScrollToTop'
 
 // Route-level code splitting — each page loads only when first visited
-const HomePage         = lazy(() => import('./pages/HomePage'))
-const UrunlerPage      = lazy(() => import('./pages/UrunlerPage'))
-const HakkimizdaPage   = lazy(() => import('./pages/HakkimizdaPage'))
-const IletisimPage     = lazy(() => import('./pages/IletisimPage'))
-const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
-const ProjelerPage      = lazy(() => import('./pages/ProjelerPage'))
+const HomePage                = lazy(() => import('./pages/HomePage'))
+const UrunlerPage             = lazy(() => import('./pages/UrunlerPage'))
+const HakkimizdaPage          = lazy(() => import('./pages/HakkimizdaPage'))
+const IletisimPage            = lazy(() => import('./pages/IletisimPage'))
+const ProductDetailPage       = lazy(() => import('./pages/ProductDetailPage'))
+const ProjelerPage            = lazy(() => import('./pages/ProjelerPage'))
+const NeonTabelaFiyatlariPage = lazy(() => import('./pages/NeonTabelaFiyatlariPage'))
+const OzelNeonTabelaPage      = lazy(() => import('./pages/OzelNeonTabelaPage'))
+const LedNeonTabelaPage       = lazy(() => import('./pages/LedNeonTabelaPage'))
+const IstanbulNeonTabelaPage  = lazy(() => import('./pages/IstanbulNeonTabelaPage'))
 
 function PageFallback() {
   return (
@@ -32,8 +36,12 @@ function AnimatedRoutes() {
           <Route path="/urunler"     element={<UrunlerPage />} />
           <Route path="/urun/:slug"  element={<ProductDetailPage />} />
           <Route path="/projeler"     element={<ProjelerPage />} />
-          <Route path="/hakkimizda"  element={<HakkimizdaPage />} />
-          <Route path="/iletisim"    element={<IletisimPage />} />
+          <Route path="/hakkimizda"           element={<HakkimizdaPage />} />
+          <Route path="/iletisim"             element={<IletisimPage />} />
+          <Route path="/neon-tabela-fiyatlari" element={<NeonTabelaFiyatlariPage />} />
+          <Route path="/ozel-neon-tabela"      element={<OzelNeonTabelaPage />} />
+          <Route path="/led-neon-tabela"       element={<LedNeonTabelaPage />} />
+          <Route path="/istanbul-neon-tabela"  element={<IstanbulNeonTabelaPage />} />
           {/* Fallback — redirect unknown paths to home */}
           <Route path="*"            element={<HomePage />} />
         </Routes>
