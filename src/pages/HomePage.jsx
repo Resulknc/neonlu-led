@@ -22,17 +22,29 @@ export default function HomePage() {
       name: 'Neonlu LED',
       description: 'Kişiye özel LED neon tabela imalat ve satışı. İşyeri, düğün, ev dekorasyonu, cafe ve gaming için uygun fiyatlı neon tabela.',
       url: 'https://neonluled.com',
-      telephone: '+905322530851',
+      telephone: '+905417679760',
+      email: 'ledneonlu@gmail.com',
       image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
       priceRange: '₺₺',
       currenciesAccepted: 'TRY',
-      paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-      areaServed: 'TR',
+      paymentAccepted: 'Nakit, Kredi Kartı, Havale/EFT',
+      areaServed: { '@type': 'Country', name: 'Turkey' },
       address: {
         '@type': 'PostalAddress',
+        streetAddress: 'Siyavuşpaşa Mahallesi Fetih Caddesi No:107',
+        addressLocality: 'Bahçelievler',
+        addressRegion: 'İstanbul',
+        postalCode: '34180',
         addressCountry: 'TR',
-        addressLocality: 'İstanbul',
       },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      ],
       sameAs: [
         'https://www.instagram.com/neonluled',
       ],
@@ -42,11 +54,6 @@ export default function HomePage() {
       '@type': 'WebSite',
       name: 'Neonlu LED',
       url: 'https://neonluled.com',
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: 'https://neonluled.com/urunler',
-        'query-input': 'required name=search_term_string',
-      },
     },
   ])
 

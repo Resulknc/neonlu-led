@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import useSEO from '../hooks/useSEO'
+import useJsonLD from '../hooks/useJsonLD'
 import PageWrapper from '../components/common/PageWrapper'
 import AboutSection from '../components/sections/AboutSection'
 
@@ -72,6 +73,29 @@ export default function HakkimizdaPage() {
     title: 'Neonlu Led Hakkımızda | Neon Tabela Uzmanları',
     description: '2019\'dan bu yana Türkiye\'nin öncü neon tabela uzmanları. CE sertifikalı özel neon tabela üretimi, LED tabela çözümleri, ücretsiz tasarım ve 7–10 iş günü teslimat. 1000+ mutlu müşteri, 500+ özel tasarım.',
     canonical: 'https://neonluled.com/hakkimizda',
+  })
+
+  useJsonLD({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Neonlu LED',
+    url: 'https://neonluled.com',
+    logo: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
+    description: '2019\'dan bu yana Türkiye\'nin öncü neon tabela ve LED tabela imalatçısı. CE sertifikalı üretim, ücretsiz tasarım desteği.',
+    foundingDate: '2019',
+    telephone: '+905417679760',
+    email: 'ledneonlu@gmail.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Siyavuşpaşa Mahallesi Fetih Caddesi No:107',
+      addressLocality: 'Bahçelievler',
+      addressRegion: 'İstanbul',
+      postalCode: '34180',
+      addressCountry: 'TR',
+    },
+    sameAs: [
+      'https://www.instagram.com/neonluled',
+    ],
   })
 
   return (

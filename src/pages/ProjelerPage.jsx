@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import useSEO from '../hooks/useSEO'
+import useJsonLD from '../hooks/useJsonLD'
 import PageWrapper from '../components/common/PageWrapper'
 import Lightbox from '../components/common/Lightbox'
 import { allImages } from '../utils/imageUtils'
@@ -91,6 +92,8 @@ function ProjectCard({ project, index }) {
             <img
               src={src}
               alt={alt}
+              loading="lazy"
+              decoding="async"
               onError={() => setImgError(true)}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -230,6 +233,21 @@ export default function ProjelerPage() {
     description: 'Türkiye genelinde tamamladığımız 500+ neon tabela projesinden seçmeler. Kafe, bar, işletme, ev dekorasyonu ve spor salonu neon tabela çalışmalarımızı inceleyin.',
     canonical: 'https://neonluled.com/projeler',
     ogType: 'website',
+  })
+
+  useJsonLD({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Neonlu LED Neon Tabela Projeleri',
+    description: 'Türkiye genelinde tamamlanan 500+ neon tabela ve LED tabela projesinden örnekler.',
+    url: 'https://neonluled.com/projeler',
+    numberOfItems: PROJECTS.length,
+    itemListElement: PROJECTS.slice(0, 20).map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.title,
+      image: `https://neonluled.com${p.src}`,
+    })),
   })
 
   const filtered = activeCategory === 'Tümü'

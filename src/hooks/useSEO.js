@@ -68,7 +68,7 @@ export default function useSEO({
     setMeta('meta[property="og:description"]',   'content', description, prev)
     setMeta('meta[property="og:type"]',          'content', ogType,      prev)
     setMeta('meta[property="og:site_name"]',     'content', 'Neonlu LED', prev)
-    setMeta('meta[name="twitter:card"]',         'content', 'summary',   prev)
+    setMeta('meta[name="twitter:card"]',         'content', 'summary_large_image', prev)
     setMeta('meta[name="twitter:title"]',        'content', title,       prev)
     setMeta('meta[name="twitter:description"]',  'content', description, prev)
 
@@ -77,6 +77,7 @@ export default function useSEO({
     }
 
     const canonicalHref = canonical ?? window.location.href
+    setMeta('meta[property="og:url"]', 'content', canonicalHref, prev)
     setLink('canonical', canonicalHref, prev)
 
     // ── restore on unmount ────────────────────────────────────────────────────
