@@ -48,10 +48,7 @@ function IconYouTube() {
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const socialLinks = [
-  { label: 'Instagram', href: '#', Icon: IconInstagram, color: '#ff2d78' },
-  { label: 'Facebook', href: '#', Icon: IconFacebook, color: '#00e5ff' },
-  { label: 'X (Twitter)', href: '#', Icon: IconX, color: '#ff2d78' },
-  { label: 'YouTube', href: '#', Icon: IconYouTube, color: '#00e5ff' },
+  { label: 'Instagram', href: 'https://www.instagram.com/neonluled', Icon: IconInstagram, color: '#ff2d78' },
 ]
 
 const productLinks = [

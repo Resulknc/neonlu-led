@@ -17,6 +17,7 @@ const NeonTabelaFiyatlariPage = lazy(() => import('./pages/NeonTabelaFiyatlariPa
 const OzelNeonTabelaPage      = lazy(() => import('./pages/OzelNeonTabelaPage'))
 const LedNeonTabelaPage       = lazy(() => import('./pages/LedNeonTabelaPage'))
 const IstanbulNeonTabelaPage  = lazy(() => import('./pages/IstanbulNeonTabelaPage'))
+const NotFoundPage            = lazy(() => import('./pages/NotFoundPage'))
 
 function PageFallback() {
   return (
@@ -42,8 +43,8 @@ function AnimatedRoutes() {
           <Route path="/ozel-neon-tabela"      element={<OzelNeonTabelaPage />} />
           <Route path="/led-neon-tabela"       element={<LedNeonTabelaPage />} />
           <Route path="/istanbul-neon-tabela"  element={<IstanbulNeonTabelaPage />} />
-          {/* Fallback — redirect unknown paths to home */}
-          <Route path="*"            element={<HomePage />} />
+          {/* 404 — unknown paths */}
+          <Route path="*"            element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </AnimatePresence>

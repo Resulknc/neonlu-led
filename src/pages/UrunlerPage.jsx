@@ -63,7 +63,7 @@ function PageHero() {
 
           <p className="font-body text-lg max-w-xl mx-auto" style={{ color: '#6b7280' }}>
             İşletme tabelasından ev dekoruna, düğün neon tabelasından gaming LED tabelaya —
-            her ihtiyaca özel neon tasarım. 12 farklı model, ücretsiz tasarım desteği.
+            her ihtiyaca özel neon tasarım. 16 farklı model, ücretsiz tasarım desteği.
           </p>
         </motion.div>
       </div>
@@ -74,7 +74,7 @@ function PageHero() {
 export default function UrunlerPage() {
   useSEO({
     title: 'Neon Tabela ve Led Tabela Modelleri | Neonlu LED',
-    description: 'Özel neon tabela ve LED tabela modelleri: iş yeri, düğün, cafe, gaming, ev dekor, dükkan reklam tabelası ve daha fazlası. 12 farklı kategori, ücretsiz tasarım, Türkiye geneli kargo. Hemen fiyat teklifi alın.',
+    description: 'Özel neon tabela ve LED tabela modelleri: iş yeri, düğün, cafe, gaming, ev dekor, dükkan reklam tabelası ve daha fazlası. 16 farklı model, ücretsiz tasarım, Türkiye geneli kargo. Hemen fiyat teklifi alın.',
     canonical: 'https://neonluled.com/urunler',
   })
 
