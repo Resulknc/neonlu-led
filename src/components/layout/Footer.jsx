@@ -66,9 +66,16 @@ const productLinks = [
 const companyLinks = [
   { label: 'Hakkımızda', to: '/hakkimizda' },
   { label: 'Ürünlerimiz', to: '/urunler' },
-  { label: 'Müşteri Yorumları', to: '/' },
+  { label: 'Projelerimiz', to: '/projeler' },
   { label: 'İletişim', to: '/iletisim' },
   { label: 'Ücretsiz Teklif Al', to: '/iletisim' },
+]
+
+const seoLinks = [
+  { label: 'Neon Tabela Fiyatları', to: '/neon-tabela-fiyatlari' },
+  { label: 'Özel Neon Tabela', to: '/ozel-neon-tabela' },
+  { label: 'LED Neon Tabela', to: '/led-neon-tabela' },
+  { label: 'İstanbul Neon Tabela', to: '/istanbul-neon-tabela' },
 ]
 
 const contactDetails = [
@@ -108,10 +115,10 @@ export default function Footer() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
           {/* ── Col 1: Brand + Social + Contact ── */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             {/* Logo */}
             <Link
               to="/"
@@ -231,6 +238,32 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-2.5" role="list">
               {companyLinks.map(link => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    title={link.label}
+                    className="font-body text-sm transition-colors duration-200"
+                    style={{ color: '#6b7280', textDecoration: 'none' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#9ca3af')}
+                    onMouseLeave={e => (e.currentTarget.style.color = '#6b7280')}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── Col 3b: SEO Pages ── */}
+          <div>
+            <h3
+              className="font-display text-xs uppercase tracking-[0.3em] mb-5"
+              style={{ color: '#ff2d78', textShadow: '0 0 8px #ff2d78' }}
+            >
+              Neon Tabela Rehberi
+            </h3>
+            <ul className="flex flex-col gap-2.5" role="list">
+              {seoLinks.map(link => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
