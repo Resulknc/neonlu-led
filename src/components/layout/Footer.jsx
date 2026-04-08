@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+
 
 /**
  * Neonlu LED — Footer
@@ -88,17 +88,6 @@ const contactDetails = [
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function Footer() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
-
-  const handleSubscribe = (e) => {
-    e.preventDefault()
-    if (email.trim()) {
-      setSubscribed(true)
-      setEmail('')
-    }
-  }
-
   return (
     <footer
       role="contentinfo"
@@ -115,10 +104,10 @@ export default function Footer() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
           {/* ── Col 1: Brand + Social + Contact ── */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             {/* Logo */}
             <Link
               to="/"
@@ -280,94 +269,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Col 4: Newsletter ── */}
-          <div>
-            <h3
-              className="font-display text-xs uppercase tracking-[0.3em] mb-2"
-              style={{ color: '#ff2d78', textShadow: '0 0 8px #ff2d78' }}
-            >
-              Bülten
-            </h3>
-            <p className="font-body text-sm mb-5" style={{ color: '#6b7280' }}>
-              Yeni neon tabela modelleri ve özel indirimler için e-posta listemize katılın.
-            </p>
-
-            {subscribed ? (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="font-body text-sm py-4 px-4 text-center"
-                style={{
-                  color: '#ff2d78',
-                  border: '1px solid rgba(255,45,120,0.3)',
-                  backgroundColor: 'rgba(255,45,120,0.05)',
-                  boxShadow: '0 0 12px rgba(255,45,120,0.15)',
-                  textShadow: '0 0 8px rgba(255,45,120,0.5)',
-                }}
-              >
-                ✓ Bültene kaydoldunuz!
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubscribe} noValidate aria-label="Bülten abonelik formu">
-                <div className="flex flex-col gap-3">
-                  <input
-                    type="email"
-                    name="newsletter-email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    placeholder="E-posta adresiniz"
-                    required
-                    aria-label="E-posta adresiniz"
-                    className="w-full font-body text-sm px-4 py-3 outline-none transition-all duration-200"
-                    style={{
-                      backgroundColor: '#0f0f0f',
-                      border: '1px solid #1a1a1a',
-                      color: '#e5e7eb',
-                    }}
-                    onFocus={e => {
-                      e.currentTarget.style.borderColor = '#ff2d78'
-                      e.currentTarget.style.boxShadow = '0 0 0 2px rgba(255,45,120,0.15), 0 0 10px rgba(255,45,120,0.1)'
-                    }}
-                    onBlur={e => {
-                      e.currentTarget.style.borderColor = '#1a1a1a'
-                      e.currentTarget.style.boxShadow = 'none'
-                    }}
-                  />
-                  <motion.button
-                    type="submit"
-                    className="w-full font-display text-xs uppercase tracking-widest py-3"
-                    style={{
-                      backgroundColor: 'transparent',
-                      color: '#ff2d78',
-                      border: '1px solid #ff2d78',
-                      boxShadow: '0 0 8px rgba(255,45,120,0.3)',
-                      cursor: 'pointer',
-                    }}
-                    whileHover={{
-                      backgroundColor: 'rgba(255,45,120,0.08)',
-                      boxShadow: '0 0 18px #ff2d78, 0 0 35px rgba(255,45,120,0.2)',
-                    }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    Abone Ol
-                  </motion.button>
-                </div>
-                <p className="font-body text-xs mt-3" style={{ color: '#4b5563' }}>
-                  Spam göndermiyoruz. İstediğiniz zaman abonelikten çıkabilirsiniz.
-                </p>
-              </form>
-            )}
-
-            {/* Hidden SEO keywords */}
-            <div className="mt-8 pt-6" style={{ borderTop: '1px solid #111' }}>
-              <p className="font-body text-xs leading-relaxed" style={{ color: '#374151' }}>
-                <strong style={{ fontWeight: 500 }}>Neon tabela</strong> imalat ve satışında güvenilir adresiniz.
-                Özel neon tabela, LED neon ışıklı tabela, neon tabela fiyatları ve neon tabela sipariş için
-                Neonlu LED'i tercih edin.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
 
