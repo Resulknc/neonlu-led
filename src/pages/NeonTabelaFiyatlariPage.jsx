@@ -102,6 +102,9 @@ export default function NeonTabelaFiyatlariPage() {
   useJsonLD({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    name: 'Neon Tabela Fiyatları — Sık Sorulan Sorular',
+    description: 'Neon tabela fiyatları, boyutlar ve sipariş süreci hakkında en çok sorulan sorular ve cevapları.',
+    url: 'https://neonluled.com/neon-tabela-fiyatlari',
     mainEntity: FAQS.map(f => ({
       '@type': 'Question',
       name: f.question,

@@ -80,10 +80,35 @@ export default function useSEO({
     setMeta('meta[property="og:url"]', 'content', canonicalHref, prev)
     setLink('canonical', canonicalHref, prev)
 
+    // ── Auto-inject base WebPage schema (name + description + url guaranteed) ─
+    // More-specific schemas (Product, LocalBusiness, FAQPage…) are added
+    // per-page via useJsonLD — this is the universal fallback layer.
+    const baseType = (() => {
+      const p = window.location.pathname
+      if (p === '/urunler')        return 'CollectionPage'
+      if (p === '/projeler')       return 'CollectionPage'
+      if (p === '/hakkimizda')     return 'AboutPage'
+      if (p.startsWith('/urun/')) return 'ItemPage'
+      return 'WebPage'
+    })()
+
+    const baseScript = document.createElement('script')
+    baseScript.type = 'application/ld+json'
+    baseScript.setAttribute('data-base-schema', 'true')
+    baseScript.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': baseType,
+      name: title,
+      description,
+      url: canonicalHref,
+    })
+    document.head.appendChild(baseScript)
+
     // ── restore on unmount ────────────────────────────────────────────────────
 
     return () => {
       document.title = prevTitle
+      baseScript.remove()
 
       Object.entries(prev).forEach(([sel, state]) => {
         // meta selectors contain '[', link entries are stored as the rel value (e.g. "canonical")

@@ -103,6 +103,9 @@ export default function IstanbulNeonTabelaPage() {
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
+      name: 'İstanbul Neon Tabela — Sık Sorulan Sorular',
+      description: 'İstanbul genelinde neon tabela montajı, teslimat ve sipariş süreci hakkında sık sorulan sorular.',
+      url: 'https://neonluled.com/istanbul-neon-tabela',
       mainEntity: FAQS.map(f => ({
         '@type': 'Question',
         name: f.question,

@@ -91,6 +91,9 @@ export default function LedNeonTabelaPage() {
   useJsonLD({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    name: 'LED Neon Tabela — Sık Sorulan Sorular',
+    description: 'LED neon tabela teknolojisi, enerji tasarrufu ve geleneksel neonla farkı hakkında sık sorulan sorular.',
+    url: 'https://neonluled.com/led-neon-tabela',
     mainEntity: FAQS.map(f => ({
       '@type': 'Question',
       name: f.question,
