@@ -229,7 +229,7 @@ export default function ProductDetailPage() {
 function ProductDetailContent({ product, accent, accentDim, related, navigate }) {
   useSEO({
     title: `${product.title} | Neonlu LED`,
-    description: `${product.subtitle}. ${product.desc} Ücretsiz tasarım, ${product.deliveryDays} iş günü teslimat. ${product.price} başlayan fiyatlarla teklif alın.`,
+    description: `${product.subtitle}. Ücretsiz tasarım, ${product.deliveryDays} iş günü teslimat. ${product.price} başlayan fiyatlarla teklif alın.`,
     canonical: `https://neonluled.com/urun/${product.slug}`,
     ogImage: product.image ? `https://neonluled.com${product.image}` : undefined,
   })

@@ -71,7 +71,7 @@ function PageHero() {
 export default function HakkimizdaPage() {
   useSEO({
     title: 'Neonlu Led Hakkımızda | Neon Tabela Uzmanları',
-    description: '2019\'dan bu yana Türkiye\'nin öncü neon tabela uzmanları. CE sertifikalı özel neon tabela üretimi, LED tabela çözümleri, ücretsiz tasarım ve 7–10 iş günü teslimat. 1000+ mutlu müşteri, 500+ özel tasarım.',
+    description: 'Öncü neon tabela imalatçısı. CE sertifikalı üretim, ücretsiz tasarım, 7–10 iş günü teslimat. 1000+ mutlu müşteri, 500+ özel tasarım.',
     canonical: 'https://neonluled.com/hakkimizda',
   })
 

@@ -74,6 +74,7 @@ export default function useSEO({
 
     if (ogImage) {
       setMeta('meta[property="og:image"]', 'content', ogImage, prev)
+      setMeta('meta[name="twitter:image"]', 'content', ogImage, prev)
     }
 
     const canonicalHref = canonical ?? window.location.href

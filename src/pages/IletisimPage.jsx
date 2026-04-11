@@ -128,7 +128,7 @@ function InfoSection() {
 export default function IletisimPage() {
   useSEO({
     title: 'Neon Tabela Siparişi | Neonlu Led İletişim',
-    description: 'Özel neon tabela siparişi ve ücretsiz fiyat teklifi için bize ulaşın. İstanbul merkezli, Türkiye geneli hizmet. Formu doldurun, tasarım ekibimiz 24 saat içinde size ulaşsın.',
+    description: 'Özel neon tabela siparişi ve fiyat teklifi için bize ulaşın. İstanbul merkezli, Türkiye geneli hizmet. Formu doldurun, 24 saat içinde yanıt alın.',
     canonical: 'https://neonluled.com/iletisim',
   })
 
@@ -161,6 +161,46 @@ export default function IletisimPage() {
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
           opens: '09:00',
           closes: '18:00',
+        },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      name: 'Neon Tabela Siparişi — Sıkça Sorulan Sorular',
+      url: 'https://neonluled.com/iletisim',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Ücretsiz tasarım teklifi nasıl alabilirim?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Formu doldurun ya da doğrudan WhatsApp\'tan mesaj atın. Tabela boyutunu, rengini ve ne yazmasını istediğinizi bildirin — 24 saat içinde tasarım görseli ve fiyat teklifi iletiyoruz.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Teslimat süresi ne kadar?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sipariş onayından itibaren ortalama 7–10 iş günü üretim süresi uygulanır. İstanbul içi siparişlerde kurye, Türkiye genelinde kargo ile teslim edilir.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'İstanbul dışından sipariş verebilir miyim?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Evet. Türkiye\'nin 81 iline kargo ile gönderim yapıyoruz. Dış mekan kullanımı için IP65 su geçirmez modeller, iç mekan için standart modeller uygundur.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Atölyenizi ziyaret edebilir miyim?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Bahçelievler\'deki atölyemizi hafta içi 09:00–18:00 saatleri arasında ziyaret edebilirsiniz. Önceden WhatsApp\'tan randevu almanızı öneririz.',
+          },
         },
       ],
     },

@@ -230,7 +230,7 @@ export default function ProjelerPage() {
 
   useSEO({
     title: 'Projelerimiz | Gerçek Neon Tabela Örnekleri — Neonlu LED',
-    description: 'Türkiye genelinde tamamladığımız 500+ neon tabela projesinden seçmeler. Kafe, bar, işletme, ev dekorasyonu ve spor salonu neon tabela çalışmalarımızı inceleyin.',
+    description: 'Türkiye genelinde tamamlanan 500+ neon tabela projesinden seçmeler. Kafe, bar, işletme, ev dekorasyonu ve spor salonu çalışmalarımız.',
     canonical: 'https://neonluled.com/projeler',
     ogType: 'website',
   })
