@@ -226,12 +226,18 @@ export default function ProductDetailPage() {
   )
 }
 
+const DEFAULT_PRODUCT_IMAGE = 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg'
+
 function ProductDetailContent({ product, accent, accentDim, related, navigate }) {
+  const productImage = product.image
+    ? `https://neonluled.com${product.image}`
+    : DEFAULT_PRODUCT_IMAGE
+
   useSEO({
     title: `${product.title} | Neonlu LED`,
     description: `${product.subtitle}. Ücretsiz tasarım, ${product.deliveryDays} iş günü teslimat. ${product.price} başlayan fiyatlarla teklif alın.`,
     canonical: `https://neonluled.com/urun/${product.slug}`,
-    ogImage: product.image ? `https://neonluled.com${product.image}` : undefined,
+    ogImage: productImage,
   })
 
   useJsonLD([
@@ -240,7 +246,7 @@ function ProductDetailContent({ product, accent, accentDim, related, navigate })
       '@type': 'Product',
       name: product.title,
       description: `${product.subtitle}. ${product.longDesc}`,
-      image: product.image ? `https://neonluled.com${product.image}` : undefined,
+      image: productImage,
       sku: product.slug,
       brand: { '@type': 'Brand', name: 'Neonlu LED' },
       offers: {
