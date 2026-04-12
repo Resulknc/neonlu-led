@@ -93,6 +93,8 @@ export default function useSEO({
       return 'WebPage'
     })()
 
+    const DEFAULT_IMAGE = 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg'
+
     const baseScript = document.createElement('script')
     baseScript.type = 'application/ld+json'
     baseScript.setAttribute('data-base-schema', 'true')
@@ -102,6 +104,7 @@ export default function useSEO({
       name: title,
       description,
       url: canonicalHref,
+      image: ogImage ?? DEFAULT_IMAGE,
     })
     document.head.appendChild(baseScript)
 

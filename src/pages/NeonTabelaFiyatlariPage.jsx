@@ -105,6 +105,7 @@ export default function NeonTabelaFiyatlariPage() {
     name: 'Neon Tabela Fiyatları — Sık Sorulan Sorular',
     description: 'Neon tabela fiyatları, boyutlar ve sipariş süreci hakkında en çok sorulan sorular ve cevapları.',
     url: 'https://neonluled.com/neon-tabela-fiyatlari',
+    image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
     mainEntity: FAQS.map(f => ({
       '@type': 'Question',
       name: f.question,

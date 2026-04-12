@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import useSEO from '../hooks/useSEO'
 import useJsonLD from '../hooks/useJsonLD'
+import { testimonials } from '../data/testimonials'
 import PageWrapper from '../components/common/PageWrapper'
 import HeroSection from '../components/sections/HeroSection'
 import AboutPreview from '../components/sections/AboutPreview'
@@ -86,6 +87,13 @@ export default function HomePage() {
         bestRating: '5',
         worstRating: '1',
       },
+      review: testimonials.map(t => ({
+        '@type': 'Review',
+        author: { '@type': 'Person', name: t.name },
+        reviewRating: { '@type': 'Rating', ratingValue: String(t.stars), bestRating: '5' },
+        reviewBody: t.text,
+        name: t.category,
+      })),
       sameAs: [
         'https://www.instagram.com/neonluled',
       ],

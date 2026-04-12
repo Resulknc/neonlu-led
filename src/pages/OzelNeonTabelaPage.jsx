@@ -88,6 +88,7 @@ export default function OzelNeonTabelaPage() {
     name: 'Özel Neon Tabela Tasarımı — Sık Sorulan Sorular',
     description: 'Kişiye özel neon tabela tasarımı, üretim süreci ve teslimata dair en çok sorulan sorular.',
     url: 'https://neonluled.com/ozel-neon-tabela',
+    image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
     mainEntity: FAQS.map(f => ({
       '@type': 'Question',
       name: f.question,

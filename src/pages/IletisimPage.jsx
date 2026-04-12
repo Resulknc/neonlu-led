@@ -139,11 +139,13 @@ export default function IletisimPage() {
       name: 'Neonlu LED — Bize Ulaşın',
       url: 'https://neonluled.com/iletisim',
       description: 'Özel neon tabela siparişi ve ücretsiz fiyat teklifi için iletişim sayfası.',
+      image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
     },
     {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: 'Neonlu LED',
+      image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
       telephone: '+905417679760',
       email: 'ledneonlu@gmail.com',
       url: 'https://neonluled.com',

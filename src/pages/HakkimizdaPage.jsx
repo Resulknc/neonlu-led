@@ -81,6 +81,7 @@ export default function HakkimizdaPage() {
     name: 'Neonlu LED',
     url: 'https://neonluled.com',
     logo: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
+    image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
     description: '2019\'dan bu yana Türkiye\'nin öncü neon tabela ve LED tabela imalatçısı. CE sertifikalı üretim, ücretsiz tasarım desteği.',
     foundingDate: '2019',
     telephone: '+905417679760',

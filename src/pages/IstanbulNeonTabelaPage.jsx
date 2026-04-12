@@ -106,6 +106,7 @@ export default function IstanbulNeonTabelaPage() {
       name: 'İstanbul Neon Tabela — Sık Sorulan Sorular',
       description: 'İstanbul genelinde neon tabela montajı, teslimat ve sipariş süreci hakkında sık sorulan sorular.',
       url: 'https://neonluled.com/istanbul-neon-tabela',
+      image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
       mainEntity: FAQS.map(f => ({
         '@type': 'Question',
         name: f.question,
