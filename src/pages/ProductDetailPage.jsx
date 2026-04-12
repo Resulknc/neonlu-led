@@ -6,6 +6,7 @@ import PageWrapper from '../components/common/PageWrapper'
 import ProductGallery from '../components/product/ProductGallery'
 import { getProductBySlug, getRelatedProducts } from '../data/products'
 import { getImagesForSlug } from '../utils/imageUtils'
+import { testimonials } from '../data/testimonials'
 
 /**
  * /urun/:slug — Ürün Detay Sayfası
@@ -256,6 +257,13 @@ function ProductDetailContent({ product, accent, accentDim, related, navigate })
         bestRating: '5',
         worstRating: '1',
       },
+      review: testimonials.map(t => ({
+        '@type': 'Review',
+        author: { '@type': 'Person', name: t.name },
+        reviewRating: { '@type': 'Rating', ratingValue: String(t.stars), bestRating: '5' },
+        reviewBody: t.text,
+        name: t.category,
+      })),
       offers: {
         '@type': 'Offer',
         priceCurrency: 'TRY',
