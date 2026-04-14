@@ -105,7 +105,7 @@ export default function HomePage() {
       url: 'https://neonluled.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://neonluled.com/apple-touch-icon.png',
+        url: 'https://neonluled.com/logo.png',
         width: 180,
         height: 180,
       },
