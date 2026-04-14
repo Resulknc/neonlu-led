@@ -100,6 +100,19 @@ export default function HomePage() {
     },
     {
       '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Neonlu LED',
+      url: 'https://neonluled.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://neonluled.com/apple-touch-icon.png',
+        width: 180,
+        height: 180,
+      },
+      sameAs: ['https://www.instagram.com/neonluled'],
+    },
+    {
+      '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'Neonlu LED',
       url: 'https://neonluled.com',

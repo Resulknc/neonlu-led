@@ -80,7 +80,12 @@ export default function HakkimizdaPage() {
     '@type': 'Organization',
     name: 'Neonlu LED',
     url: 'https://neonluled.com',
-    logo: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://neonluled.com/apple-touch-icon.png',
+      width: 180,
+      height: 180,
+    },
     image: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
     description: '2019\'dan bu yana Türkiye\'nin öncü neon tabela ve LED tabela imalatçısı. CE sertifikalı üretim, ücretsiz tasarım desteği.',
     foundingDate: '2019',
