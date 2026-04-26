@@ -13,7 +13,7 @@ const FAQS = [
   {
     question: 'İstanbul\'un her ilçesine hizmet veriyor musunuz?',
     answer:
-      'Evet. Bahçelievler merkezli atölyemizden tüm İstanbul ilçelerine hizmet veriyoruz. Avrupa yakasında Bağcılar, Bahçelievler, Beylikdüzü, Esenyurt, Avcılar, Bakırköy ve Anadolu yakasında Kadıköy, Üsküdar, Maltepe, Kartal, Pendik gibi ilçelere teslimat ve montaj yapıyoruz.',
+      'Evet. Şişli merkezli atölyemizden tüm İstanbul ilçelerine hizmet veriyoruz. Avrupa yakasında Şişli, Bağcılar, Bahçelievler, Beylikdüzü, Esenyurt, Avcılar, Bakırköy ve Anadolu yakasında Kadıköy, Üsküdar, Maltepe, Kartal, Pendik gibi ilçelere teslimat ve montaj yapıyoruz.',
   },
   {
     question: 'İstanbul içi montaj hizmeti var mı?',
@@ -23,7 +23,7 @@ const FAQS = [
   {
     question: 'Atölyeye gelerek tabelamı yerinde görebilir miyim?',
     answer:
-      'Evet, Bahçelievler\'deki atölyemizi çalışma saatleri dahilinde ziyaret edebilirsiniz. Önceden WhatsApp\'tan randevu almanızı öneririz. Adres: Siyavuşpaşa Mah. Fetih Caddesi No:107, Bahçelievler / İstanbul.',
+      'Evet, Şişli\'deki atölyemizi çalışma saatleri dahilinde ziyaret edebilirsiniz. Önceden WhatsApp\'tan randevu almanızı öneririz. Adres: Ergenekon Mah. Çimen Sk. No:114, Şişli / İstanbul.',
   },
   {
     question: 'İstanbul dışına da sipariş alıyor musunuz?',
@@ -74,8 +74,8 @@ function CTABar() {
 
 export default function IstanbulNeonTabelaPage() {
   useSEO({
-    title: 'İstanbul Neon Tabela | Bahçelievler Yerinde Montaj',
-    description: 'İstanbul neon tabela imalat ve montaj hizmeti. Bahçelievler merkezli, tüm İstanbul ilçelerine teslimat. Ücretsiz tasarım, 7–10 iş günü üretim.',
+    title: 'İstanbul Neon Tabela | Şişli Yerinde Montaj',
+    description: 'İstanbul neon tabela imalat ve montaj hizmeti. Şişli merkezli, tüm İstanbul ilçelerine teslimat. Ücretsiz tasarım, 7–10 iş günü üretim.',
     canonical: 'https://neonluled.com/istanbul-neon-tabela',
     ogImage: 'https://neonluled.com/images/is-yeri-neon-tabelasi-1.jpeg',
   })
@@ -85,7 +85,7 @@ export default function IstanbulNeonTabelaPage() {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: 'Neonlu LED',
-      description: 'İstanbul Bahçelievler merkezli neon tabela imalat ve montaj hizmeti.',
+      description: 'İstanbul Şişli merkezli neon tabela imalat ve montaj hizmeti.',
       url: 'https://neonluled.com',
       telephone: '+905417679760',
       email: 'ledneonlu@gmail.com',
@@ -94,8 +94,9 @@ export default function IstanbulNeonTabelaPage() {
       areaServed: [{ '@type': 'City', name: 'İstanbul' }],
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Siyavuşpaşa Mah. Fetih Caddesi No:107',
-        addressLocality: 'Bahçelievler',
+        streetAddress: 'Ergenekon Mah. Çimen Sk. No:114',
+        addressLocality: 'Şişli',
+        postalCode: '34000',
         addressRegion: 'İstanbul',
         addressCountry: 'TR',
       },
@@ -132,7 +133,7 @@ export default function IstanbulNeonTabelaPage() {
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="h-px w-12" style={{ backgroundColor: ACCENT, boxShadow: `0 0 6px ${ACCENT}` }} />
-              <span className="font-display text-xs uppercase tracking-[0.4em]" style={{ color: ACCENT }}>Bahçelievler · Tüm İstanbul</span>
+              <span className="font-display text-xs uppercase tracking-[0.4em]" style={{ color: ACCENT }}>Şişli · Tüm İstanbul</span>
               <span className="h-px w-12" style={{ backgroundColor: ACCENT, boxShadow: `0 0 6px ${ACCENT}` }} />
             </div>
             <h1 className="font-display text-4xl lg:text-6xl font-black text-white mb-5 leading-tight">
@@ -140,7 +141,7 @@ export default function IstanbulNeonTabelaPage() {
               <span style={{ color: ACCENT, textShadow: `0 0 20px ${ACCENT}, 0 0 40px ${ACCENT}66` }}>NEON TABELA</span>
             </h1>
             <p className="font-body text-lg max-w-2xl mx-auto mb-8" style={{ color: '#6b7280' }}>
-              İstanbul'un en güvenilir neon tabela imalatçısı. Bahçelievler'deki atölyemizde üretip
+              İstanbul'un en güvenilir neon tabela imalatçısı. Şişli'deki atölyemizde üretip
               tüm İstanbul ilçelerine montajlı olarak teslim ediyoruz.
             </p>
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
@@ -158,7 +159,7 @@ export default function IstanbulNeonTabelaPage() {
           <SectionHeading label="Hizmet Bölgesi" title="İstanbul'un Her Köşesine Neon Tabela" />
           <div className="font-body text-base leading-relaxed space-y-5" style={{ color: '#9ca3af' }}>
             <p>
-              <strong style={{ color: '#d1d5db' }}>Neonlu LED</strong>, Bahçelievler'deki üretim atölyesiyle İstanbul genelinde neon tabela imalat ve montaj hizmeti sunmaktadır. Küçük bir esnaftan büyük kurumsal şirkete, düğün salonlarından kafelere kadar her ölçekteki İstanbul işletmesine hizmet veriyoruz.
+              <strong style={{ color: '#d1d5db' }}>Neonlu LED</strong>, Şişli'deki üretim atölyesiyle İstanbul genelinde neon tabela imalat ve montaj hizmeti sunmaktadır. Küçük bir esnaftan büyük kurumsal şirkete, düğün salonlarından kafelere kadar her ölçekteki İstanbul işletmesine hizmet veriyoruz.
             </p>
             <p>
               Avrupa yakasındaki konum avantajımızla Bağcılar, Esenyurt, Beylikdüzü, Bakırköy, Fatih, Beyoğlu ve Şişli gibi yoğun ticari bölgelere hızlı teslimat sağlıyoruz. Anadolu yakası müşterilerimize ise kargo veya özel araç ile teslimat yapılmaktadır.
@@ -236,7 +237,7 @@ export default function IstanbulNeonTabelaPage() {
           <SectionHeading label="Neden Biz?" title="İstanbul'da Neonlu LED'i Seçmenin 5 Nedeni" accent={BLUE} />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-body text-sm" style={{ color: '#9ca3af' }}>
             {[
-              { title: 'Atölye Ziyareti', desc: 'Bahçelievler\'deki atölyemizi ziyaret edip üretimi yerinde görebilirsiniz.' },
+              { title: 'Atölye Ziyareti', desc: 'Şişli\'deki atölyemizi ziyaret edip üretimi yerinde görebilirsiniz.' },
               { title: 'Hızlı Montaj', desc: 'İstanbul içi siparişlerde yerinde montaj ekibimiz devreye girer.' },
               { title: 'Acil Teslimat', desc: 'Ekspres üretimle 3–5 iş günü içinde teslim seçeneği.' },
               { title: 'Yerel Destek', desc: 'Sorun yaşandığında İstanbul içinde hızlı teknik destek.' },
@@ -254,7 +255,7 @@ export default function IstanbulNeonTabelaPage() {
             <span className="text-2xl">📍</span>
             <div>
               <p className="font-display text-xs uppercase tracking-widest mb-1" style={{ color: ACCENT }}>Atölye Adresimiz</p>
-              <p className="font-body text-sm text-white">Siyavuşpaşa Mah. Fetih Caddesi No:107, Bahçelievler / İstanbul</p>
+              <p className="font-body text-sm text-white">Ergenekon Mah. Çimen Sk. No:114, Şişli / İstanbul</p>
               <p className="font-body text-xs mt-1" style={{ color: '#6b7280' }}>Ziyaret için önceden randevu almanızı öneririz.</p>
             </div>
           </div>

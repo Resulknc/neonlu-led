@@ -85,7 +85,7 @@ function InfoSection() {
     },
     {
       q: 'Atölyenizi ziyaret edebilir miyim?',
-      a: 'Bahçelievler\'deki atölyemizi hafta içi 09:00–18:00 saatleri arasında ziyaret edebilirsiniz. Önceden WhatsApp\'tan randevu almanızı öneririz.',
+      a: 'Şişli\'deki atölyemizi hafta içi 09:00–18:00 saatleri arasında ziyaret edebilirsiniz. Önceden WhatsApp\'tan randevu almanızı öneririz.',
     },
   ]
 
@@ -112,10 +112,10 @@ function InfoSection() {
         </dl>
         <div className="mt-10 p-6 text-center" style={{ backgroundColor: '#0a0a0a', border: '1px solid #1c1c1c' }}>
           <p className="font-body text-sm leading-relaxed" style={{ color: '#6b7280' }}>
-            <strong style={{ color: '#9ca3af' }}>Neonlu LED</strong> olarak İstanbul Bahçelievler'deki atölyemizden
+            <strong style={{ color: '#9ca3af' }}>Neonlu LED</strong> olarak İstanbul Şişli'deki atölyemizden
             Türkiye geneline <strong style={{ color: '#9ca3af' }}>özel neon tabela</strong> ve{' '}
             <strong style={{ color: '#9ca3af' }}>led tabela</strong> hizmeti sunuyoruz.
-            Adresimiz: <strong style={{ color: '#9ca3af' }}>Siyavuşpaşa Mahallesi Fetih Caddesi No:107, Bahçelievler / İstanbul.</strong>{' '}
+            Adresimiz: <strong style={{ color: '#9ca3af' }}>Ergenekon Mahallesi, Çimen Sokak No:114, Şişli / İstanbul.</strong>{' '}
             Telefon: <a href="tel:+905417679760" style={{ color: '#ff2d78', textDecoration: 'none' }}>+90 (541) 767-9760</a>.
             E-posta: <a href="mailto:ledneonlu@gmail.com" style={{ color: '#ff2d78', textDecoration: 'none' }}>ledneonlu@gmail.com</a>.
           </p>
@@ -151,10 +151,10 @@ export default function IletisimPage() {
       url: 'https://neonluled.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Siyavuşpaşa Mahallesi Fetih Caddesi No:107',
-        addressLocality: 'Bahçelievler',
+        streetAddress: 'Ergenekon Mah. Çimen Sk. No:114',
+        addressLocality: 'Şişli',
         addressRegion: 'İstanbul',
-        postalCode: '34180',
+        postalCode: '34000',
         addressCountry: 'TR',
       },
       openingHoursSpecification: [
@@ -201,7 +201,7 @@ export default function IletisimPage() {
           name: 'Atölyenizi ziyaret edebilir miyim?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Bahçelievler\'deki atölyemizi hafta içi 09:00–18:00 saatleri arasında ziyaret edebilirsiniz. Önceden WhatsApp\'tan randevu almanızı öneririz.',
+            text: 'Şişli\'deki atölyemizi hafta içi 09:00–18:00 saatleri arasında ziyaret edebilirsiniz. Önceden WhatsApp\'tan randevu almanızı öneririz.',
           },
         },
       ],

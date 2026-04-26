@@ -76,7 +76,7 @@ const seoLinks = [
 ]
 
 const contactDetails = [
-  { icon: '📍', text: 'Siyavuşpaşa Mah. Fetih Cad. No:107, Bahçelievler, İstanbul' },
+  { icon: '📍', text: 'Ergenekon Mah. Çimen Sk. No:114, Şişli, İstanbul' },
   { icon: '📧', text: 'ledneonlu@gmail.com', href: 'mailto:ledneonlu@gmail.com' },
   { icon: '📞', text: '+90 (541) 767-9760', href: 'tel:+905417679760' },
   { icon: '⏰', text: 'Pzt – Cum: 09:00 – 18:00' },

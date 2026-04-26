@@ -66,10 +66,10 @@ export default function HomePage() {
       areaServed: { '@type': 'Country', name: 'Turkey' },
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Siyavuşpaşa Mahallesi Fetih Caddesi No:107',
-        addressLocality: 'Bahçelievler',
+        streetAddress: 'Ergenekon Mah. Çimen Sk. No:114',
+        addressLocality: 'Şişli',
         addressRegion: 'İstanbul',
-        postalCode: '34180',
+        postalCode: '34000',
         addressCountry: 'TR',
       },
       openingHoursSpecification: [

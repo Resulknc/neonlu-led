@@ -46,7 +46,7 @@ const contactCards = [
       </svg>
     ),
     label: 'Konum',
-    value: 'Siyavuşpaşa Mah. Fetih Caddesi\nNo:107, Bahçelievler, İstanbul',
+    value: 'Ergenekon Mah. Çimen Sk.\nNo:114, Şişli, İstanbul',
     href: null,
     note: 'Türkiye geneli kargo',
   },
