@@ -13,6 +13,7 @@ const HakkimizdaPage          = lazy(() => import('./pages/HakkimizdaPage'))
 const IletisimPage            = lazy(() => import('./pages/IletisimPage'))
 const ProductDetailPage       = lazy(() => import('./pages/ProductDetailPage'))
 const ProjelerPage            = lazy(() => import('./pages/ProjelerPage'))
+const NeonTabelaPage          = lazy(() => import('./pages/NeonTabelaPage'))
 const NeonTabelaFiyatlariPage = lazy(() => import('./pages/NeonTabelaFiyatlariPage'))
 const OzelNeonTabelaPage      = lazy(() => import('./pages/OzelNeonTabelaPage'))
 const LedNeonTabelaPage       = lazy(() => import('./pages/LedNeonTabelaPage'))
@@ -39,6 +40,7 @@ function AnimatedRoutes() {
           <Route path="/projeler"     element={<ProjelerPage />} />
           <Route path="/hakkimizda"           element={<HakkimizdaPage />} />
           <Route path="/iletisim"             element={<IletisimPage />} />
+          <Route path="/neon-tabela"          element={<NeonTabelaPage />} />
           <Route path="/neon-tabela-fiyatlari" element={<NeonTabelaFiyatlariPage />} />
           <Route path="/ozel-neon-tabela"      element={<OzelNeonTabelaPage />} />
           <Route path="/led-neon-tabela"       element={<LedNeonTabelaPage />} />

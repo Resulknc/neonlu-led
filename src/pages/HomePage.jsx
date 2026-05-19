@@ -11,6 +11,7 @@ import TestimonialsSection from '../components/sections/TestimonialsSection'
 import CTASection from '../components/sections/CTASection'
 
 const SEO_LINKS = [
+  { to: '/neon-tabela', label: 'Neon Tabela' },
   { to: '/neon-tabela-fiyatlari', label: 'Neon Tabela Fiyatları' },
   { to: '/ozel-neon-tabela', label: 'Özel Neon Tabela' },
   { to: '/led-neon-tabela', label: 'LED Neon Tabela' },

@@ -117,6 +117,12 @@
 
   <!-- SEO Landing Sayfaları -->
   <url>
+    <loc>https://neonluled.com/neon-tabela</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://neonluled.com/neon-tabela-fiyatlari</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>

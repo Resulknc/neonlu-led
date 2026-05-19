@@ -69,6 +69,7 @@ const companyLinks = [
 ]
 
 const seoLinks = [
+  { label: 'Neon Tabela', to: '/neon-tabela' },
   { label: 'Neon Tabela Fiyatları', to: '/neon-tabela-fiyatlari' },
   { label: 'Özel Neon Tabela', to: '/ozel-neon-tabela' },
   { label: 'LED Neon Tabela', to: '/led-neon-tabela' },
