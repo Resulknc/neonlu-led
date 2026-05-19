@@ -4,6 +4,7 @@ import useSEO from '../hooks/useSEO'
 import useJsonLD from '../hooks/useJsonLD'
 import PageWrapper from '../components/common/PageWrapper'
 import ProductGallery from '../components/product/ProductGallery'
+import RelatedGuidesSection from '../components/sections/RelatedGuidesSection'
 import { getProductBySlug, getRelatedProducts } from '../data/products'
 import { getImagesForSlug } from '../utils/imageUtils'
 import { testimonials } from '../data/testimonials'
@@ -554,6 +555,8 @@ function ProductDetailContent({ product, accent, accentDim, related, navigate })
           </div>
         </section>
       )}
+
+      <RelatedGuidesSection accent={accent} />
     </PageWrapper>
   )
 }

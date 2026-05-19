@@ -4,6 +4,7 @@ import useSEO from '../hooks/useSEO'
 import useJsonLD from '../hooks/useJsonLD'
 import PageWrapper from '../components/common/PageWrapper'
 import FaqSection from '../components/sections/FaqSection'
+import RelatedGuidesSection from '../components/sections/RelatedGuidesSection'
 
 const WHATSAPP = 'https://wa.me/905417679760?text=Merhaba%2C%20neon%20tabela%20fiyat%20teklifi%20almak%20istiyorum.'
 
@@ -263,6 +264,8 @@ export default function NeonTabelaFiyatlariPage() {
       </Section>
 
       <FaqSection faqs={FAQS} accent={ACCENT} title="Neon Tabela Fiyatları Hakkında Sık Sorulan Sorular" />
+
+      <RelatedGuidesSection currentPath="/neon-tabela-fiyatlari" accent={ACCENT} />
 
       {/* Bottom CTA */}
       <section className="py-16 px-4 text-center" style={{ backgroundColor: '#050505', borderTop: '1px solid #111' }}>

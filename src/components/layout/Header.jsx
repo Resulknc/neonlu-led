@@ -10,11 +10,12 @@ import { motion, AnimatePresence } from 'framer-motion'
  */
 
 const navLinks = [
-  { label: 'Ana Sayfa',   to: '/',            title: 'Neonlu LED Ana Sayfa' },
-  { label: 'Ürünler',    to: '/urunler',     title: 'Neon Tabela ve LED Tabela Modelleri' },
-  { label: 'Projeler',   to: '/projeler',    title: 'Gerçek Neon Tabela Projeleri ve Örnekleri' },
-  { label: 'Hakkımızda', to: '/hakkimizda',  title: 'Neonlu LED Hakkında — Neon Tabela Üretimi' },
-  { label: 'İletişim',   to: '/iletisim',    title: 'Neon Tabela Siparişi ve Ücretsiz Teklif' },
+  { label: 'Ana Sayfa',    to: '/',             title: 'Neonlu LED Ana Sayfa' },
+  { label: 'Neon Tabela',  to: '/neon-tabela',  title: 'Neon Tabela — Özel LED Neon Tabela İmalatı' },
+  { label: 'Ürünler',     to: '/urunler',      title: 'Neon Tabela ve LED Tabela Modelleri' },
+  { label: 'Projeler',    to: '/projeler',     title: 'Gerçek Neon Tabela Projeleri ve Örnekleri' },
+  { label: 'Hakkımızda',  to: '/hakkimizda',   title: 'Neonlu LED Hakkında — Neon Tabela Üretimi' },
+  { label: 'İletişim',    to: '/iletisim',     title: 'Neon Tabela Siparişi ve Ücretsiz Teklif' },
 ]
 
 const underlineVariants = {

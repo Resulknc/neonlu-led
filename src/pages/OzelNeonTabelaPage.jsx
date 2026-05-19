@@ -4,6 +4,7 @@ import useSEO from '../hooks/useSEO'
 import useJsonLD from '../hooks/useJsonLD'
 import PageWrapper from '../components/common/PageWrapper'
 import FaqSection from '../components/sections/FaqSection'
+import RelatedGuidesSection from '../components/sections/RelatedGuidesSection'
 
 const WHATSAPP = 'https://wa.me/905417679760?text=Merhaba%2C%20%C3%B6zel%20neon%20tabela%20tasarimi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.'
 const ACCENT = '#00e5ff'
@@ -216,6 +217,8 @@ export default function OzelNeonTabelaPage() {
       </section>
 
       <FaqSection faqs={FAQS} accent={ACCENT} title="Özel Neon Tabela Hakkında Sık Sorulan Sorular" />
+
+      <RelatedGuidesSection currentPath="/ozel-neon-tabela" accent={ACCENT} />
 
       <section className="py-16 px-4 text-center" style={{ backgroundColor: '#050505', borderTop: '1px solid #111' }}>
         <div className="max-w-2xl mx-auto">

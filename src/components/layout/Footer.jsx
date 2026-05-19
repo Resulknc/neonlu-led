@@ -52,12 +52,12 @@ const socialLinks = [
 ]
 
 const productLinks = [
-  { label: 'İş Yeri Neon Tabelası', to: '/urunler' },
-  { label: 'Düğün Neon Tabelası', to: '/urunler' },
-  { label: 'Ev Dekor Neon Tabela', to: '/urunler' },
-  { label: 'Cafe & Restoran Tabelası', to: '/urunler' },
-  { label: 'Gaming Neon Tabela', to: '/urunler' },
-  { label: 'Neon Tabela Hediye', to: '/urunler' },
+  { label: 'İş Yeri Neon Tabelası', to: '/urun/is-yeri-neon-tabelasi' },
+  { label: 'Düğün Neon Tabelası', to: '/urun/dugun-neon-tabelasi' },
+  { label: 'Ev Dekor Neon Tabela', to: '/urun/ev-dekor-neon-tabela' },
+  { label: 'Cafe & Restoran Tabelası', to: '/urun/kafe-neon-tabela' },
+  { label: 'Gaming Neon Tabela', to: '/urun/gaming-neon-tabela' },
+  { label: 'Neon Tabela Hediye', to: '/urun/neon-tabela-hediye' },
 ]
 
 const companyLinks = [
